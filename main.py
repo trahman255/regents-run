@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Import your routers from the routers folder
-# (Adjust the import names based on the files inside your 'routers/' directory)
-from routers import questions  # or whatever your router file is named, e.g., tests, questions, etc.
+# Import the actual routers from your routers folder
+from routers import auth, tests
 
 app = FastAPI()
 
@@ -18,8 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount the router to the FastAPI app
-app.include_router(questions.router)
+# Mount both routers
+app.include_router(auth.router)
+app.include_router(tests.router)
 
 @app.get("/")
 def read_root():
