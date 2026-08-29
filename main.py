@@ -1,18 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+# Import your routers from the routers folder
+# (Adjust the import names based on the files inside your 'routers/' directory)
+from routers import questions  # or whatever your router file is named, e.g., tests, questions, etc.
+
 app = FastAPI()
 
-# Allow frontend origins
-origins = [
-    "*",  # Allows all origins (easiest for development and deployment)
-    # Or restrict specifically later, e.g.:
-    # "http://localhost:3000",
-    # "http://localhost:5500",
-    # "http://127.0.0.1:5500",
-    # "https://your-frontend.vercel.app",
-    # "https://your-frontend.github.io",
-]
+# Configure CORS
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,4 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Your existing routes/endpoints follow below...
+# Mount the router to the FastAPI app
+app.include_router(questions.router)
+
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "Regents Run API is running"}
