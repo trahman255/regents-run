@@ -1,0 +1,9 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+init_neon.py
+migrate_data.py
+old.html
+old.py
