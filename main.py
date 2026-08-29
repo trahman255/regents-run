@@ -1,24 +1,25 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware  # <-- This was the missing line!
-from routers import tests, auth
-from core.database import engine
-from models import domain
+from fastapi.middleware.cors import CORSMiddleware
 
-# This ensures all your tables are created in PostgreSQL
-domain.Base.metadata.create_all(bind=engine)
+app = FastAPI()
 
-app = FastAPI(title="Regents Run API")
+# Allow frontend origins
+origins = [
+    "*",  # Allows all origins (easiest for development and deployment)
+    # Or restrict specifically later, e.g.:
+    # "http://localhost:3000",
+    # "http://localhost:5500",
+    # "http://127.0.0.1:5500",
+    # "https://your-frontend.vercel.app",
+    # "https://your-frontend.github.io",
+]
 
-# --- CORS BLOCK ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows any frontend to connect
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],  # Allows GET, POST, etc.
+    allow_methods=["*"],
     allow_headers=["*"],
 )
-# ---------------------------
 
-# Connect your route files
-app.include_router(tests.router)
-app.include_router(auth.router)
+# Your existing routes/endpoints follow below...
