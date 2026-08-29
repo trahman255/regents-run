@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-# Import the actual routers from your routers folder
 from routers import auth, tests
 
 app = FastAPI()
@@ -17,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount both routers
+# Mount the routers
 app.include_router(auth.router)
 app.include_router(tests.router)
 
