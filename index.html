@@ -854,8 +854,16 @@
 
             let imageHtml = (q.image_url && q.image_url !== "") ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` : '';
             
+            // --- NEW: Check for context and format it ---
+            let contextHtml = (q.context && q.context !== "") 
+                ? `<div style="margin-bottom: 20px; padding: 16px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; line-height: 1.6; font-size: 0.95em; color: #333;">
+                     ${q.context}
+                   </div>` 
+                : '';
+
             appDiv.innerHTML = `
                 <div class="question-card">
+                    ${contextHtml} <!-- Injected here, above the question -->
                     <div class="question-text">
                         ${currentQuestionIndex + 1}. ${formattedQ.text}
                         ${formattedQ.reference}
@@ -958,6 +966,13 @@
                 let cardClass = isCorrect ? 'review-card correct-card' : 'review-card';
                 let imageHtml = (q.image_url && q.image_url !== "") ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` : '';
 
+                // --- NEW: Context formatting for the review screen ---
+                let contextHtml = (q.context && q.context !== "") 
+                    ? `<div style="margin-bottom: 16px; padding: 12px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; line-height: 1.5; font-size: 0.9em; color: #333;">
+                         ${q.context}
+                       </div>` 
+                    : '';
+
                 let reviewOptionsHtml = '<div class="options-grid">';
                 (q.shuffledOptions || []).forEach((optObj, optIdx) => {
                     let isThisCorrect = (optObj.originalIndex === correctOriginalIndex);
@@ -981,6 +996,7 @@
 
                 reviewHtml += `
                     <div class="${cardClass}">
+                        ${contextHtml} <!-- Injected here, above the question -->
                         <div class="question-text">
                             ${index + 1}. ${formattedQ.text}
                             ${formattedQ.reference}

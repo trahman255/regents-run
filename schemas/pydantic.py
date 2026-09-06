@@ -32,10 +32,11 @@ class QuestionOut(BaseModel):
     id: int
     course: str
     topic: str
+    context: Optional[str] = None      # <-- ADDED THIS LINE
     question: str
     options: Optional[List[str]] = None
-    answer: Optional[str] = None       # <-- Added this!
-    image_url: Optional[str] = None    # <-- Added this!
+    answer: Optional[str] = None       
+    image_url: Optional[str] = None    
 
     class Config:
         from_attributes = True

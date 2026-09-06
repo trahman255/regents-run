@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, JSON
+# ADD 'Text' to the end of this import line
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, JSON, Text
 from sqlalchemy.sql import func
 from core.database import Base
 
@@ -16,6 +17,7 @@ class Question(Base):
     id = Column(Integer, primary_key=True, index=True)
     course = Column(String)
     topic = Column(String)
+    context = Column(Text, nullable=True) # <-- ADD JUST THIS LINE
     question = Column(String)
     options = Column(JSON)
     answer = Column(String)
