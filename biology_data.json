@@ -1,0 +1,132 @@
+[
+    {
+        "course": "Biology",
+        "topic": "Ecosystems & Interdependence",
+        "question": "Base your answers to questions 1 through 5 on the information below and on your knowledge of biology.<br><br>Carbon! Where Does It Come From? Where Does It Go? On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments. Earth and its atmosphere can be considered a closed system. The amount of carbon in different locations within Earth's system is always changing. Sea otters help maintain the carbon balance in their ecosystem. Otters eat sea urchins. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest. Kelp are large autotrophic algae that grow much faster than most plants. When kelp die, they sink into the deep ocean. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below.[cite: 1]<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px;'><br><br>Which claim about the kelp carbon pool is best supported by evidence from the information and the model above? (LE Jun '25)",
+        "options": [
+            "The carbon storage is higher with the otters present because the sea otters eat the sea urchins.[cite: 1]",
+            "The carbon storage is higher with the sea urchins present because they control the kelp population.[cite: 1]",
+            "The carbon storage is lower with the otters present because the sea otters eat the kelp.[cite: 1]",
+            "The carbon storage is lower with the sea urchins present because they carry out autotrophic nutrition.[cite: 1]"
+        ],
+        "answer": "1",
+        "image_url": ""
+    },
+    {
+        "course": "Biology",
+        "topic": "Ecosystems & Interdependence",
+        "question": "Base your answers to questions 1 through 5 on the information below and on your knowledge of biology.<br><br>Carbon! Where Does It Come From? Where Does It Go? On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments. Earth and its atmosphere can be considered a closed system. The amount of carbon in different locations within Earth's system is always changing. Sea otters help maintain the carbon balance in their ecosystem. Otters eat sea urchins. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest. Kelp are large autotrophic algae that grow much faster than most plants. When kelp die, they sink into the deep ocean. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below.[cite: 1]<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px;'><br><br>Which statement uses the model to describe how kelp contributes to a reduction of carbon entering the atmosphere? (LE Jun '25)",
+        "options": [
+            "Kelp produces carbon as it grows within the hydrosphere.[cite: 1]",
+            "Some of the carbon stored in the dead kelp is trapped in the geosphere of the sea floor.[cite: 1]",
+            "Kelp produces carbon as it sinks into the hydrosphere.[cite: 1]",
+            "Some of the carbon stored in kelp is added to the geosphere through cell respiration.[cite: 1]"
+        ],
+        "answer": "2",
+        "image_url": ""
+    },
+    {
+        "course": "Biology",
+        "topic": "Ecosystems & Interdependence",
+        "question": "Which model identifies the process that converts light energy into chemical energy inside the kelp? (LE Jun '25)",
+        "options": [
+            "$6CO_2 + 6H_2O \\xrightarrow{\\text{ATP}} C_6H_{12}O_6 + 6O_2$[cite: 1]",
+            "$C_6H_{12}O_6 + 6O_2 \\xrightarrow{\\text{ATP}} 6CO_2 + 6H_2O$[cite: 1]",
+            "$6CO_2 + 6H_2O \\xrightarrow{\\text{Sunlight}} C_6H_{12}O_6 + 6O_2$[cite: 1]",
+            "$C_6H_{12}O_6 + 6O_2 \\xrightarrow{\\text{Sunlight}} 6CO_2 + 6H_2O$[cite: 1]"
+        ],
+        "answer": "3",
+        "image_url": ""
+    },
+    {
+        "course": "Biology",
+        "topic": "Ecosystems & Interdependence",
+        "question": "Increased atmospheric carbon dioxide has been linked to changes within marine ecosystems. When $CO_2$ combines with water, it produces carbonic acid, lowering the water's pH. A pH of less than 7.8 can interfere with the ability of some marine organisms to make shells and skeletons. These organisms include corals, mussels, plankton, seastars, and sea urchins. The graph below shows the relationship between atmospheric $CO_2$ concentration and the pH of seawater.[cite: 1]<br><br>If the trend in atmospheric $CO_2$ levels continues, sea urchin populations may be impacted. Which statement describes evidence from the graph that supports this claim? (LE Jun '25)",
+        "options": [
+            "As CO2 increases, pH decreases, eventually dropping below 7.8, which prevents sea urchins from making skeletons and causes their population to decrease.[cite: 2]",
+            "As CO2 increases, pH increases, causing the ocean to become too basic for sea urchins to survive.",
+            "CO2 levels remain constant while pH drops, directly dissolving the sea urchin populations.",
+            "As CO2 decreases, pH decreases, stimulating sea urchin populations to overpopulate the kelp forest."
+        ],
+        "answer": "1",
+        "image_url": "images/questions_image/biology/bio_jun25_q4.png"
+    },
+    {
+        "course": "Biology",
+        "topic": "Ecosystems & Interdependence",
+        "question": "The following diagram shows some information about the cycling of carbon. The model below shows the equation for how sea urchins make their shells: $Ca^{2+} + CO_{3}^{2-} \\rightarrow CaCO_3$. Calcium ions and carbonate ions produce calcium carbonate.[cite: 1]<br><br>As ocean acidification increases, the amount of available carbonate ions decreases. How is the cycling of carbon between the biosphere and at least one other sphere affected as these environmental conditions change? (LE Jun '25)",
+        "options": [
+            "As atmospheric CO2 increases, carbonate ions in the geosphere increase, allowing urchins in the biosphere to build stronger shells.",
+            "As atmospheric CO2 increases, carbonate ions in the hydrosphere are used up and the urchins will not have the resources needed to make their shells, reducing the number of urchins in the biosphere.[cite: 2]",
+            "Carbonate ions evaporate from the hydrosphere into the atmosphere, causing sea urchins to migrate to different habitats.",
+            "The biosphere absorbs excess carbonic acid, converting it directly into calcium carbonate for sea urchin skeletons."
+        ],
+        "answer": "2",
+        "image_url": "images/questions_image/biology/bio_jun25_q5.png"
+    },
+    {
+        "course": "Biology",
+        "topic": "Homeostasis & Body Systems",
+        "question": "Base your answers to questions 6 through 10 on the information below and on your knowledge of biology.<br><br>Drinking Water Is Just The Beginning! The amount of water taken in must be in balance with the amount lost. The urinary system is involved in maintaining the salt and water balances within the body.[cite: 1]<br><br>Which statement describes how the organization of the urinary system and one other system interact to maintain homeostasis in the human body? (LE Jun '25)",
+        "options": [
+            "The adrenal gland, part of the endocrine system, delivers nutrients to the cells of the urinary system to remove carbon dioxide from the blood.[cite: 1]",
+            "The internal urethral sphincter muscle, part of the muscular system, contracts to signal the cells of the urinary system to regulate blood sugar.[cite: 1]",
+            "The brain, part of the nervous system, sends messages to the renal plexus (nerves) to signal the cells of the urinary system to deliver oxygen to the blood.[cite: 1]",
+            "The arteries, part of the circulatory system, deliver unfiltered blood to the cells of the urinary system to remove wastes.[cite: 1]"
+        ],
+        "answer": "4",
+        "image_url": "images/questions_image/biology/bio_jun25_q6.png"
+    },
+    {
+        "course": "Biology",
+        "topic": "Homeostasis & Body Systems",
+        "question": "Each kidney is composed of about a million waste-filtering structures known as nephrons. Water is reabsorbed through some parts of the nephron, such as the tubule. The model below shows the structure of a nephron in two organisms.[cite: 1]<br><br>Based on evidence in the model, which statement explains that natural selection led to the evolution of the nephron's structure and function in terrestrial mammals? (LE Jun '25)",
+        "options": [
+            "The development of the Bowman's capsule in animal kidneys was more advantageous to mammals than fish.[cite: 1]",
+            "Nephrons with longer tubules were selected for in organisms that lived on land to conserve the water they drank.[cite: 1]",
+            "The longer nephron tubule was selected for in animals that lived in oceans, rivers and lakes to filter the excess water absorbed.[cite: 1]",
+            "The number of nephrons is more important in the evolution of mammals than it is to the evolution of fish.[cite: 1]"
+        ],
+        "answer": "2",
+        "image_url": "images/questions_image/biology/bio_jun25_q7.png"
+    },
+    {
+        "course": "Biology",
+        "topic": "Homeostasis & Body Systems",
+        "question": "Another function of the kidney is to aid in regulating the number of red blood cells. The kidneys produce a protein known as Erythropoietin (EPO) that stimulates the increased production of red blood cells. The graph below shows the results of a study. Participants were exposed to different conditions prior to time zero, then EPO levels were measured over a 4.5-hour time period.[cite: 1]<br><br>Using the information provided, which statement provides evidence to support the claim that exposure to low oxygen levels results in a feedback mechanism that allows the body to maintain homeostasis? (LE Jun '25)",
+        "options": [
+            "Normal oxygen exposure caused the highest increase in EPO levels, leading to a reduction in red blood cell production.",
+            "Eight 4-minute cycles of low oxygen caused EPO levels to decrease, indicating the kidneys stopped filtering blood.",
+            "When participants were exposed to 120 minutes of low oxygen, their EPO levels increased from about 11 m/u/ml to 19 m/u/ml over 4.5 hours. More red blood cells make it possible to transport more oxygen until the appropriate blood oxygen level (set point) is reached.[cite: 2]",
+            "Low oxygen exposure inhibited the production of EPO entirely, forcing the lungs to work harder to maintain homeostasis."
+        ],
+        "answer": "3",
+        "image_url": "images/questions_image/biology/bio_jun25_q8.png"
+    },
+    {
+        "course": "Biology",
+        "topic": "Homeostasis & Body Systems",
+        "question": "In addition to their other functions, red blood cells (RBCs) have the capacity to carry water. The surface of the cell contains structures called aquaporins, which transport water across cell membranes. Due to their unique cell structure, RBCs are able to expand up to 74% or shrink up to 40% compared to the original cell size.[cite: 1]<br><br>Which statement provides the best explanation for how red blood cells contribute to a feedback mechanism that maintains homeostasis? (LE Jun '25)",
+        "options": [
+            "The aquaporins in the red blood cells facilitate the exchange of water in environments of different concentrations and help the kidneys more efficiently regulate salt and water balance.[cite: 1]",
+            "The aquaporins in the red blood cells prevent the exchange of water in environments of different concentrations and help the kidneys more efficiently regulate salt and water balance.[cite: 1]",
+            "The red blood cells change their shape to move through the kidney but have minimal effect on salt and water balance in the kidneys.[cite: 1]",
+            "The red blood cells change their shape to move through the kidney but do not regulate any feedback mechanisms.[cite: 1]"
+        ],
+        "answer": "1",
+        "image_url": ""
+    },
+    {
+        "course": "Biology",
+        "topic": "Homeostasis & Body Systems",
+        "question": "RBCs typically have a biconcave disk shape. A scientific study examined the effect of changing the RBC shape and membrane flexibility on its ability to transfer oxygen. For this study, when the RBC membrane was less flexible, the oxygen transfer capacity decreased by 18%. When the RBC was more flexible, the oxygen carrying capacity increased by 21%. When RBCs take on water their membrane initially becomes more flexible.[cite: 1]<br><br><img src='images/questions_image/biology/bio_jun25_q10.png' style='max-width: 100%; border-radius: 8px;'><br><br>What evidence would support the claim that consuming water after exercise helps an athlete's body maintain homeostasis? (LE Jun '25)",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "answer": "2",
+        "image_url": "images/questions_image/biology/bio_jun25_q10 (2).png"
+    }
+]
