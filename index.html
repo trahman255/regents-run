@@ -332,34 +332,44 @@
             "Math": {
                 icon: "calculate",
                 courses: {
-                        "Algebra I": [
-                        "One-Variable Statistics",
-                        "Linear Equations, Inequalities, and Systems",
-                        "Two-Variable Statistics",
-                        "Functions",
-                        "Introduction to Exponential Functions",
-                        "Introduction to Quadratic Functions",
-                        "Quadratic Equations"
-                    ],
-                    "Geometry": [
-                        "Constructions and Rigid Transformations",
-                        "Congruence",
-                        "Similarity",
-                        "Right Triangle Trigonometry",
-                        "Solid Geometry",
-                        "Coordinate Geometry",
-                        "Circles",
-                        "Conditional Probability"
-                    ],
+                    "Algebra I": {
+                        icon: "functions",
+                        topics: [
+                            "One-Variable Statistics",
+                            "Linear Equations, Inequalities, and Systems",
+                            "Two-Variable Statistics",
+                            "Functions",
+                            "Introduction to Exponential Functions",
+                            "Introduction to Quadratic Functions",
+                            "Quadratic Equations"
+                        ]
+                    },
+                    "Geometry": {
+                        icon: "shapes",
+                        topics: [
+                            "Constructions and Rigid Transformations",
+                            "Congruence",
+                            "Similarity",
+                            "Right Triangle Trigonometry",
+                            "Solid Geometry",
+                            "Coordinate Geometry",
+                            "Circles",
+                            "Conditional Probability"
+                        ]
                     },
                     "Algebra II": {
                         icon: "superscript",
                         topics: [
-                            "Factoring and Polynomial Identities", "Rational Expressions and Equations",
-                            "Radical Expressions and Equations", "Complex Numbers",
-                            "Exponential and Logarithmic Functions", "Transformations of Functions",
-                            "Trigonometric Functions and the Unit Circle", "Trigonometric Graphs and Identities",
-                            "Probability and Set Theory", "Inferential Statistics and Normal Distribution"
+                            "Factoring and Polynomial Identities",
+                            "Rational Expressions and Equations",
+                            "Radical Expressions and Equations",
+                            "Complex Numbers",
+                            "Exponential and Logarithmic Functions",
+                            "Transformations of Functions",
+                            "Trigonometric Functions and the Unit Circle",
+                            "Trigonometric Graphs and Identities",
+                            "Probability and Set Theory",
+                            "Inferential Statistics and Normal Distribution"
                         ]
                     }
                 }
@@ -369,11 +379,13 @@
                 courses: {
                     "Biology": {
                         icon: "coronavirus",
-                        topics: ["Homeostasis & Body Systems",
-                                 "Cell Biology & Immune Response",
-                                 "Genetics & Natural Selection",
-                                 "Ecosystems & Interdependence",
-                                 "Global Sustainability"]
+                        topics: [
+                            "Homeostasis & Body Systems",
+                            "Cell Biology & Immune Response",
+                            "Genetics & Natural Selection",
+                            "Ecosystems & Interdependence",
+                            "Global Sustainability"
+                        ]
                     },
                     "Earth & Space Science": {
                         icon: "public",
@@ -621,7 +633,7 @@
                 <div class="card" onclick="startRegentsExam('${course}', ${qCount})">
                     <span class="material-icons-round">assignment</span>
                     Test as Regents
-                    <span style="font-size: 0.8em; font-weight: normal; color: var(--accent-blue); font-weight: 600;">${qCount}-Question Mixed Exam</span>
+                    <span style="font-size: 0.8em; color: var(--accent-blue); font-weight: 600;">${qCount}-Question Mixed Exam</span>
                 </div>
             ` : '';
 
