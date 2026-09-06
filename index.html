@@ -404,7 +404,7 @@
             "English Language Arts": {
                 icon: "menu_book",
                 courses: {
-                    "ELA ": {
+                    "ELA": {
                         icon: "edit_note",
                         topics: ["Reading Comprehension", "Text Analysis", "Argumentative Writing", "Narrative Structure", "Grammar & Mechanics"]
                     }
@@ -621,13 +621,13 @@
                 "Physics": 50,
                 "Global History & Geography II": 28,
                 "U.S. History & Government": 28,
-                "ELA ": 24
+                "ELA": 24
             };
 
             let qCount = regentsQuestionCounts[course] || 24;
 
-            // Exclude Biology and Earth & Space Science from Regents Simulation
-            let hasRegentsSimulation = (course !== "Biology" && course !== "Earth & Space Science");
+            // Exclude Earth & Space Science from Regents Simulation
+            let hasRegentsSimulation = (course !== "Earth & Space Science");
 
             let regentsCardHtml = hasRegentsSimulation ? `
                 <div class="card" onclick="startRegentsExam('${course}', ${qCount})">
@@ -898,17 +898,18 @@
             if (q.answer === undefined || q.answer === null) return -1;
             let ans = String(q.answer).trim();
 
-            // Case 1: Answer is a 1-based number string (e.g. "1", "2", "3", "4" or "(1)")
-            let numMatch = ans.match(/\d+/);
+            // Case 1: Match EXACTLY a number or a number in parentheses (e.g., "1", "(2)")
+            // The ^ and $ ensure it doesn't accidentally match numbers hidden inside text sentences
+            let numMatch = ans.match(/^\(?(\d+)\)?$/);
             if (numMatch) {
-                let n = parseInt(numMatch[0]);
+                let n = parseInt(numMatch[1]);
                 if (n >= 1 && n <= (q.options || []).length) return n;
             }
 
             // Case 2: Answer is a letter (e.g. "A", "B", "C", "D")
             let upper = ans.toUpperCase();
-            if (['A', 'B', 'C', 'D', 'E'].includes(upper)) {
-                return upper.charCodeAt(0) - 64; // 'A' -> 1, 'B' -> 2, etc.
+            if (['A', 'B', 'C', 'D', 'E'].includes(upper) && upper.length === 1) {
+                return upper.charCodeAt(0) - 64; 
             }
 
             // Case 3: Answer is the actual option text string itself
@@ -1007,6 +1008,41 @@
                 window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, element]);
             }
         }
+
+        // --- Mobile/Browser Back Button Trapping ---
+        history.replaceState({ view: 'root' }, '');
+
+        window.addEventListener('popstate', function (event) {
+            const activeScreen = document.querySelector('.screen.active-screen').id;
+
+            // Only allow app exit if the user is on the absolute root Subject screen
+            if (activeScreen === 'menu-screen' && currentView === 'subjects') {
+                return;
+            }
+
+            // Push state back to prevent the browser from exiting the app
+            history.pushState({ view: 'internal' }, '');
+
+            // Route backward logically based on what screen they are currently viewing
+            if (activeScreen === 'quiz-screen') {
+                confirmExitToSubjects();
+            } else if (activeScreen === 'test-screen') {
+                renderTopics(currentSubject, currentCourse);
+            } else if (activeScreen === 'review-screen') {
+                renderSubjects();
+            } else if (activeScreen === 'menu-screen') {
+                navigateMenuBack();
+            }
+        });
+
+        // Intercept your existing goToScreen function to push a state every time they click forward
+        const originalGoToScreen = goToScreen;
+        goToScreen = function(screenId) {
+            if (screenId !== 'menu-screen' || currentView !== 'subjects') {
+                history.pushState({ view: 'internal' }, '');
+            }
+            originalGoToScreen(screenId);
+        };
     </script>
 </body>
 </html>
