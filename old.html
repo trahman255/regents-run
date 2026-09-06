@@ -6,17 +6,17 @@
     <title>Regents Run</title>
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Google Fonts for World-Class Typography -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Material Icons -->
+    <!-- Material Icons Round -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
         /* Modern CSS Variables Matching the Logo Theme */
         :root {
-            --primary: #061a48; /* Custom dark navy */
+            --primary: #061a48;
             --primary-hover: #0a2560;
-            --accent-blue: #0052FF; /* Lighter blue from the logo */
+            --accent-blue: #0052FF;
             --bg-color: #F8FAFC;
             --surface: #FFFFFF;
             --text-main: #0B132B;
@@ -66,6 +66,8 @@
             gap: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            cursor: pointer;
+            user-select: none;
         }
         .text-dark { color: var(--primary); }
         .text-light { color: var(--accent-blue); }
@@ -91,7 +93,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Test Interface Header (SAT Style) */
+        /* Test Interface Header */
         .test-header {
             display: flex;
             justify-content: space-between;
@@ -123,15 +125,15 @@
         }
         .question-text { font-size: 1.25em; margin-bottom: 24px; font-weight: 500; color: var(--text-main); }
         
-        /* Exam Reference Style */
         .exam-ref { 
             display: block;
-            font-weight: 500; 
-            font-size: 0.75em; 
-            color: var(--text-muted); 
+            font-weight: 400; 
+            font-size: 0.78em; 
+            color: #94A3B8; 
             background: transparent; 
             padding: 0; 
-            margin-top: 8px; 
+            margin-top: 6px; 
+            letter-spacing: 0.2px;
         }
 
         /* Options layout */
@@ -144,7 +146,6 @@
         }
         .option-btn:hover { background-color: #F8FAFC; border-color: #CBD5E1; }
         
-        /* A/B/C/D Bubbles */
         .opt-letter { 
             display: flex; justify-content: center; align-items: center; 
             width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--text-muted); 
@@ -172,7 +173,7 @@
         
         .action-row { display: flex; justify-content: space-between; margin-top: 24px; }
 
-        /* SAT-Style Question Bubbles */
+        /* Question Navigation Bubbles */
         .q-nav-bar { 
             display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; 
             background: var(--surface); padding: 16px; border-radius: 12px; border: 1px solid var(--border-light); 
@@ -201,7 +202,7 @@
         .wrong-opt { background-color: var(--wrong-bg); border-color: var(--wrong-border); color: #991B1B; opacity: 0.8;}
         .wrong-opt .opt-letter { border-color: var(--wrong-border); color: var(--wrong-border); }
 
-        /* Footer Styles */
+        /* Footer */
         .footer {
             text-align: center;
             padding: 24px;
@@ -211,70 +212,61 @@
             background-color: var(--surface);
             margin-top: auto;
         }
-        .footer p {
-            margin: 0;
-            font-weight: 500;
-        }
+        .footer p { margin: 0; font-weight: 500; }
     </style>
 
     <!-- MathJax Configuration -->
     <script>
-      MathJax = {
+      window.MathJax = {
         tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
-        svg: {
-          fontCache: 'global'
-        }
+        svg: { fontCache: 'global' }
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    
 </head>
-<body onload="renderSubjects()">
+<body onload="initializeApp()">
 
     <!-- Persistent Top Navigation Bar -->
     <nav class="navbar" id="navbar">
-        <div class="nav-brand">
+        <div class="nav-brand" onclick="confirmExitToSubjects()">
             <img src="images/regentsrun.png" alt="Regents Run Logo" style="height: 36px; width: auto; object-fit: contain;">
             <div>
                 <span class="text-dark">REGENTS</span><span class="text-light">RUN</span>
             </div>
         </div>
         <div class="nav-links" id="nav-links-container">
-            <span onclick="renderSubjects()"><span class="material-icons-round" style="font-size: 20px;">category</span> Subjects</span>
+            <span onclick="confirmExitToSubjects()"><span class="material-icons-round" style="font-size: 20px;">category</span> Subjects</span>
             <span onclick="if(currentSubject) renderCourses(currentSubject); else renderSubjects();"><span class="material-icons-round" style="font-size: 20px;">menu_book</span> Courses</span>
             <span onclick="if(currentCourse) renderTopics(currentSubject, currentCourse); else renderSubjects();"><span class="material-icons-round" style="font-size: 20px;">format_list_bulleted</span> Topics</span>
         </div>
     </nav>
 
-    <!-- DYNAMIC MENU SCREEN (Handles Subjects, Courses, and Topics) -->
+    <!-- Dynamic Menu Screen -->
     <div id="menu-screen" class="screen active-screen">
-        <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
             <button id="back-btn-menu" class="btn btn-outline" style="display: none; padding: 8px 12px;" onclick="navigateMenuBack()">
                 <span class="material-icons-round">arrow_back</span>
             </button>
             <h2 id="menu-title" style="text-align: left; font-size: 1.8em; margin: 0;">Select a Subject</h2>
         </div>
-        <div class="grid" id="menu-grid">
-            <!-- Automatically populated by JS -->
-        </div>
+        <div class="grid" id="menu-grid"></div>
     </div>
 
-    <!-- SCREEN 3.5: Test Selection -->
+    <!-- Test Selection Screen -->
     <div id="test-screen" class="screen">
-        <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
             <button class="btn btn-outline" style="padding: 8px 12px;" onclick="renderTopics(currentSubject, currentCourse)">
                 <span class="material-icons-round">arrow_back</span>
             </button>
             <h2 id="test-screen-title" style="text-align: left; font-size: 1.8em; margin: 0;">Select a Test</h2>
         </div>
-        <div class="grid" id="test-grid">
-            <!-- Test blocks generated by JS -->
-        </div>
+        <div class="grid" id="test-grid"></div>
     </div>
 
-    <!-- SCREEN 4: The Quiz -->
+    <!-- Quiz Screen -->
     <div id="quiz-screen" class="screen">
         <div class="test-header">
             <div>
@@ -305,13 +297,18 @@
         </div>
     </div>
 
-    <!-- SCREEN 5: Review & Score -->
+    <!-- Review Screen -->
     <div id="review-screen" class="screen">
         <div class="score-banner">
             <div id="final-score">800</div>
             <div class="score-subtitle" id="final-accuracy">Total Score</div>
             <br>
-            <button class="btn btn-primary" style="margin: 0 auto;" onclick="renderTopics(currentSubject, currentCourse)">Practice Another Topic</button>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="renderTopics(currentSubject, currentCourse)">Practice Another Topic</button>
+                <button class="btn btn-outline" onclick="renderSubjects()">
+                    <span class="material-icons-round">home</span> Return to Home
+                </button>
+            </div>
         </div>
         
         <h3 style="font-size: 1.5em; margin-bottom: 24px;">Question Review</h3>
@@ -324,75 +321,149 @@
     </footer>
 
     <script>
-        // --- NYC High School Curriculum Database ---
+        const API_BASE = 'https://regents-run-api.onrender.com';
+        const ACTIVE_SESSION_KEY = 'regents_run_active_session';
+
+        // Uniform curriculum structure across all courses
         const nycCurriculum = {
             "Math": {
                 icon: "calculate",
                 courses: {
-                    "Algebra I": [
-                        "Linear Equations and Inequalities",
-                        "Systems of Linear Equations and Inequalities",
-                        "Function Basics and Notation",
-                        "Linear Functions and Graphing",
-                        "Exponential Functions and Equations",
-                        "Polynomial Operations",
-                        "Factoring Polynomials",
-                        "Quadratic Functions and Equations",
-                        "One-Variable Statistics",
-                        "Two-Variable Data and Regressions"
-                    ],
-                    "Geometry": [
-                        "Essential Geometric Tools and Concepts",
-                        "Transformations, Rigid Motions, and Congruence",
-                        "Euclidean Triangle Proofs",
-                        "Geometric Constructions",
-                        "Tools of Coordinate Geometry",
-                        "Quadrilaterals",
-                        "Dilations and Similarity",
-                        "Right Triangle Trigonometry",
-                        "Circle Geometry",
-                        "Geometric Measurement and Modeling"
-                    ],
-                    "Algebra II": [
-                        "Factoring and Polynomial Identities",
-                        "Rational Expressions and Equations",
-                        "Radical Expressions and Equations",
-                        "Complex Numbers",
-                        "Exponential and Logarithmic Functions",
-                        "Transformations of Functions",
-                        "Trigonometric Functions and the Unit Circle",
-                        "Trigonometric Graphs and Identities",
-                        "Probability and Set Theory",
-                        "Inferential Statistics and Normal Distribution"
-                    ]
+                    "Algebra I": {
+                        icon: "functions",
+                        topics: [
+                            "Linear Equations and Inequalities",
+                            "Systems of Linear Equations and Inequalities",
+                            "Function Basics and Notation",
+                            "Linear Functions and Graphing",
+                            "Exponential Functions and Equations",
+                            "Polynomial Operations",
+                            "Factoring Polynomials",
+                            "Quadratic Functions and Equations",
+                            "One-Variable Statistics",
+                            "Two-Variable Data and Regressions"
+                        ]
+                    },
+                    "Geometry": {
+                        icon: "square_foot",
+                        topics: [
+                            "Essential Geometric Tools and Concepts",
+                            "Transformations, Rigid Motions, and Congruence",
+                            "Euclidean Triangle Proofs",
+                            "Geometric Constructions",
+                            "Tools of Coordinate Geometry",
+                            "Quadrilaterals",
+                            "Dilations and Similarity",
+                            "Right Triangle Trigonometry",
+                            "Circle Geometry",
+                            "Geometric Measurement and Modeling"
+                        ]
+                    },
+                    "Algebra II": {
+                        icon: "superscript",
+                        topics: [
+                            "Factoring and Polynomial Identities",
+                            "Rational Expressions and Equations",
+                            "Radical Expressions and Equations",
+                            "Complex Numbers",
+                            "Exponential and Logarithmic Functions",
+                            "Transformations of Functions",
+                            "Trigonometric Functions and the Unit Circle",
+                            "Trigonometric Graphs and Identities",
+                            "Probability and Set Theory",
+                            "Inferential Statistics and Normal Distribution"
+                        ]
+                    }
                 }
             },
             "Science": {
                 icon: "science",
                 courses: {
-                    "Living Environment": ["Cells & Biochemistry", "Genetics & Heredity", "Evolution", "Human Body Systems", "Ecology"],
-                    "Earth Science": ["Astronomy", "Meteorology & Weather", "Geology & Minerals", "Plate Tectonics", "Earth's History"],
-                    "Chemistry": ["Atomic Structure", "Periodic Table", "Chemical Bonding", "Stoichiometry", "Acids, Bases & Salts"],
-                    "Physics": ["Mechanics & Kinematics", "Energy & Work", "Electricity & Magnetism", "Waves & Light", "Modern Physics"]
+                    "Living Environment": {
+                        icon: "biotech",
+                        topics: [
+                            "Cells & Biochemistry",
+                            "Genetics & Heredity",
+                            "Evolution",
+                            "Human Body Systems",
+                            "Ecology"
+                        ]
+                    },
+                    "Earth Science": {
+                        icon: "public",
+                        topics: [
+                            "Astronomy",
+                            "Meteorology & Weather",
+                            "Geology & Minerals",
+                            "Plate Tectonics",
+                            "Earth's History"
+                        ]
+                    },
+                    "Chemistry": {
+                        icon: "science",
+                        topics: [
+                            "Atomic Structure",
+                            "Periodic Table",
+                            "Chemical Bonding",
+                            "Stoichiometry",
+                            "Acids, Bases & Salts"
+                        ]
+                    },
+                    "Physics": {
+                        icon: "electric_bolt",
+                        topics: [
+                            "Mechanics & Kinematics",
+                            "Energy & Work",
+                            "Electricity & Magnetism",
+                            "Waves & Light",
+                            "Modern Physics"
+                        ]
+                    }
                 }
             },
             "English Language Arts": {
                 icon: "menu_book",
                 courses: {
-                    "ELA (All Grades)": ["Reading Comprehension", "Text Analysis", "Argumentative Writing", "Narrative Structure", "Grammar & Mechanics"]
+                    "ELA (All Grades)": {
+                        icon: "edit_note",
+                        topics: [
+                            "Reading Comprehension",
+                            "Text Analysis",
+                            "Argumentative Writing",
+                            "Narrative Structure",
+                            "Grammar & Mechanics"
+                        ]
+                    }
                 }
             },
             "Social Studies": {
                 icon: "public",
                 courses: {
-                    "Global History & Geography": ["Early Civilizations", "Classical Empires", "Middle Ages", "Age of Revolutions", "World Conflicts (WWI/WWII)"],
-                    "U.S. History & Government": ["Colonial Foundations", "The Constitution", "Civil War & Reconstruction", "Industrialization", "Modern America"]
+                    "Global History & Geography": {
+                        icon: "history_edu",
+                        topics: [
+                            "Early Civilizations",
+                            "Classical Empires",
+                            "Middle Ages",
+                            "Age of Revolutions",
+                            "World Conflicts (WWI/WWII)"
+                        ]
+                    },
+                    "U.S. History & Government": {
+                        icon: "gavel",
+                        topics: [
+                            "Colonial Foundations",
+                            "The Constitution",
+                            "Civil War & Reconstruction",
+                            "Industrialization",
+                            "Modern America"
+                        ]
+                    }
                 }
             }
         };
 
-        // --- Application State Variables ---
-        let allQuestions = [];
+        // Application State
         let currentTopicQuestions = [];
         let currentTestQuestions = [];
         let userAnswers = {}; 
@@ -403,10 +474,29 @@
         let currentCourse = "";
         let currentTopic = "";
         let currentTestIndex = null;
+        let currentQuizTitle = "";
 
         const optionLetters = ['A', 'B', 'C', 'D', 'E'];
 
-        // --- Helper Function: Scramble Array ---
+        function formatQuestionContent(rawQuestionText) {
+            let refMatch = rawQuestionText.match(/\((?:ALG|GEO|CCALG|LE|ES|CHEM|PHYS|ELA|GLOBAL|US)\s+[^)]+\)/i) ||
+                           rawQuestionText.match(/\([^)]*(?:Jan(?:uary)?|Jun(?:e)?|Aug(?:ust)?)\s+\d{4}[^)]*\)/i);
+
+            if (refMatch) {
+                let refText = refMatch[0];
+                let mainText = rawQuestionText.replace(refText, '').trim();
+                return {
+                    text: mainText,
+                    reference: `<span class="exam-ref">${refText}</span>`
+                };
+            }
+
+            return {
+                text: rawQuestionText,
+                reference: ''
+            };
+        }
+
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -415,18 +505,70 @@
             return array;
         }
 
-        // --- Fetch Database Questions ---
-        fetch('http://127.0.0.1:8000/questions')
-            .then(response => response.json())
-            .then(questions => { allQuestions = questions; })
-            .catch(error => console.log("Database not connected yet. UI will still function but tests may be empty."));
+        function syncActiveSessionToStorage() {
+            if (currentTestQuestions.length > 0) {
+                const sessionPayload = {
+                    currentTestQuestions,
+                    userAnswers,
+                    currentQuestionIndex,
+                    currentSubject,
+                    currentCourse,
+                    currentTopic,
+                    currentTestIndex,
+                    currentQuizTitle
+                };
+                localStorage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(sessionPayload));
+            }
+        }
 
-        // --- Screen Navigation Logic ---
+        function clearActiveSession() {
+            localStorage.removeItem(ACTIVE_SESSION_KEY);
+        }
+
+        function initializeApp() {
+            const savedSession = localStorage.getItem(ACTIVE_SESSION_KEY);
+            if (savedSession) {
+                try {
+                    const parsed = JSON.parse(savedSession);
+                    if (parsed.currentTestQuestions && parsed.currentTestQuestions.length > 0) {
+                        currentTestQuestions = parsed.currentTestQuestions;
+                        userAnswers = parsed.userAnswers || {};
+                        currentQuestionIndex = parsed.currentQuestionIndex || 0;
+                        currentSubject = parsed.currentSubject || "";
+                        currentCourse = parsed.currentCourse || "";
+                        currentTopic = parsed.currentTopic || "";
+                        currentTestIndex = parsed.currentTestIndex;
+                        currentQuizTitle = parsed.currentQuizTitle || currentTopic;
+
+                        document.getElementById('quiz-title').innerText = currentQuizTitle;
+                        goToScreen('quiz-screen');
+                        renderNavBar();
+                        renderQuestion();
+                        return;
+                    }
+                } catch (e) {
+                    console.error("Failed to restore session:", e);
+                    clearActiveSession();
+                }
+            }
+            renderSubjects();
+        }
+
+        function confirmExitToSubjects() {
+            const activeScreen = document.querySelector('.screen.active-screen');
+            if (activeScreen && activeScreen.id === 'quiz-screen') {
+                if (!confirm("You have a test in progress. Do you want to exit and return to subjects?")) {
+                    return;
+                }
+                clearActiveSession();
+            }
+            renderSubjects();
+        }
+
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
             document.getElementById(screenId).classList.add('active-screen');
             
-            // Adjust Navbar and Footer layout depending on whether we are taking a test
             let navLinksContainer = document.getElementById("nav-links-container");
             let navbar = document.getElementById("navbar");
             let footer = document.getElementById("app-footer");
@@ -434,17 +576,16 @@
             if (screenId === 'quiz-screen') {
                 navLinksContainer.style.display = "none";
                 navbar.style.justifyContent = "center";
-                footer.style.display = "none"; // Hide footer during the test
+                footer.style.display = "none";
             } else {
                 navLinksContainer.style.display = "flex";
                 navbar.style.justifyContent = "space-between";
-                footer.style.display = "block"; // Show footer on menu/review screens
+                footer.style.display = "block";
             }
 
             window.scrollTo(0,0);
         }
 
-        // --- Dynamic Menu Rendering ---
         function navigateMenuBack() {
             if (document.getElementById("menu-title").innerText.includes("Topics")) {
                 renderCourses(currentSubject);
@@ -484,9 +625,10 @@
             
             let courses = nycCurriculum[subject].courses;
             for (let course in courses) {
+                let courseData = courses[course];
                 grid.innerHTML += `
                     <div class="card" onclick="renderTopics('${subject}', '${course}')">
-                        <span class="material-icons-round">class</span>
+                        <span class="material-icons-round">${courseData.icon || 'class'}</span>
                         ${course}
                     </div>
                 `;
@@ -503,7 +645,7 @@
             let grid = document.getElementById("menu-grid");
             grid.innerHTML = "";
             
-            let topics = nycCurriculum[subject].courses[course];
+            let topics = nycCurriculum[subject].courses[course].topics;
             topics.forEach(topic => {
                 grid.innerHTML += `
                     <div class="card" onclick="loadTests('${topic}')">
@@ -515,17 +657,24 @@
             goToScreen('menu-screen');
         }
 
-        // --- Test Loading & Execution ---
-        function loadTests(selectedTopic) {
-            currentTopic = selectedTopic;
-            currentTopicQuestions = allQuestions.filter(q => q.topic === selectedTopic);
-            
-            if (currentTopicQuestions.length === 0) {
-                alert(`You haven't inserted any SQL questions for '${selectedTopic}' into your database yet!`);
-                return;
+        async function loadTests(selectedTopic) {
+            try {
+                let res = await fetch(`${API_BASE}/tests/topic/${encodeURIComponent(selectedTopic)}`);
+                currentTopicQuestions = await res.json();
+                
+                if (!currentTopicQuestions || currentTopicQuestions.length === 0) {
+                    alert(`No questions found in the database for '${selectedTopic}' yet!`);
+                    return;
+                }
+                currentTopic = selectedTopic;
+                renderTestModules();
+            } catch (e) {
+                alert("Could not connect to the database.");
             }
+        }
 
-            document.getElementById('test-screen-title').innerText = selectedTopic;
+        function renderTestModules() {
+            document.getElementById('test-screen-title').innerText = currentTopic;
             let testGrid = document.getElementById('test-grid');
             testGrid.innerHTML = '';
 
@@ -536,14 +685,16 @@
                 let end = Math.min(start + questionsPerTest, currentTopicQuestions.length);
                 let qCount = end - start;
 
-                let storageKey = `regents_run_saved_${selectedTopic}_${i}`;
+                let storageKey = `regents_run_saved_${currentTopic}_${i}`;
                 let hasSaved = localStorage.getItem(storageKey) !== null;
-                let badgeText = hasSaved ? `<span style="color: var(--accent-blue); font-size: 0.85em; font-weight: 700;">Resume Saved Test (${qCount} Qs)</span>` : `<span style="font-size: 0.8em; font-weight: normal; color: var(--text-muted);">${qCount} Questions</span>`;
+                let badgeText = hasSaved 
+                    ? `<span style="color: var(--accent-blue); font-size: 0.85em; font-weight: 700;">Resume Saved Test (${qCount} Qs)</span>` 
+                    : `<span style="font-size: 0.8em; font-weight: normal; color: var(--text-muted);">${qCount} Questions</span>`;
 
                 testGrid.innerHTML += `
                     <div class="card" onclick="startTest(${i})">
                         <span class="material-icons-round">assignment</span>
-                        Module ${i + 1}: ${selectedTopic}
+                        Module ${i + 1}: ${currentTopic}
                         ${badgeText}
                     </div>
                 `;
@@ -562,11 +713,13 @@
                     currentTestQuestions = parsed.questions;
                     userAnswers = parsed.answers;
                     currentQuestionIndex = parsed.currentIndex;
+                    currentQuizTitle = `Module ${testIndex + 1}: ${currentTopic}`;
                     
-                    document.getElementById('quiz-title').innerText = `Module ${testIndex + 1}: ${currentTopic}`;
+                    document.getElementById('quiz-title').innerText = currentQuizTitle;
                     goToScreen('quiz-screen');
                     renderNavBar();
                     renderQuestion();
+                    syncActiveSessionToStorage();
                     return;
                 } else {
                     localStorage.removeItem(storageKey);
@@ -577,18 +730,20 @@
             let end = start + questionsPerTest;
             
             currentTestQuestions = currentTopicQuestions.slice(start, end).map(q => {
-                let mappedOptions = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx + 1 }));
+                let mappedOptions = (q.options || []).map((opt, idx) => ({ text: opt, originalIndex: idx + 1 }));
                 shuffleArray(mappedOptions);
                 return { ...q, shuffledOptions: mappedOptions };
             });
             
             userAnswers = {};
             currentQuestionIndex = 0;
-            document.getElementById('quiz-title').innerText = `Module ${testIndex + 1}: ${currentTopic}`;
+            currentQuizTitle = `Module ${testIndex + 1}: ${currentTopic}`;
+            document.getElementById('quiz-title').innerText = currentQuizTitle;
             
             goToScreen('quiz-screen');
             renderNavBar();
             renderQuestion();
+            syncActiveSessionToStorage();
         }
 
         function saveAndExitTest() {
@@ -599,9 +754,9 @@
                 currentIndex: currentQuestionIndex
             };
             localStorage.setItem(storageKey, JSON.stringify(payload));
+            clearActiveSession();
             alert("Your test progress has been saved!");
-            goToScreen('test-screen');
-            loadTests(currentTopic);
+            renderTestModules();
         }
 
         function renderNavBar() {
@@ -638,8 +793,10 @@
             
             document.getElementById('q-counter').innerText = `Question ${currentQuestionIndex + 1} of ${currentTestQuestions.length}`;
 
+            let formattedQ = formatQuestionContent(q.question);
+
             let optionsHtml = '<div class="options-grid">';
-            q.shuffledOptions.forEach((optObj, optIndex) => {
+            (q.shuffledOptions || []).forEach((optObj, optIndex) => {
                 let isSelected = (userAnswers[currentQuestionIndex] === optIndex) ? 'selected-option' : '';
                 let letter = optionLetters[optIndex] || '';
                 
@@ -651,11 +808,16 @@
             });
             optionsHtml += '</div>';
 
-            let imageHtml = q.image_url !== "" ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` : '';
+            let imageHtml = (q.image_url && q.image_url !== "") 
+                ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` 
+                : '';
             
             appDiv.innerHTML = `
                 <div class="question-card">
-                    <div class="question-text">${currentQuestionIndex + 1}. ${q.question}</div>
+                    <div class="question-text">
+                        ${currentQuestionIndex + 1}. ${formattedQ.text}
+                        ${formattedQ.reference}
+                    </div>
                     ${imageHtml}
                     ${optionsHtml}
                 </div>
@@ -674,19 +836,44 @@
             allBtns.forEach(b => b.classList.remove('selected-option'));
             btnElement.classList.add('selected-option');
             renderNavBar(); 
+            syncActiveSessionToStorage();
         }
 
         function navigateQuestion(direction) {
             currentQuestionIndex += direction;
             renderQuestion();
+            syncActiveSessionToStorage();
         }
 
         function jumpToQuestion(index) {
             currentQuestionIndex = index;
             renderQuestion();
+            syncActiveSessionToStorage();
         }
 
-        // --- Submission and Grading ---
+        function getCorrectOriginalIndex(q) {
+            if (q.answer === undefined || q.answer === null) return -1;
+            let ans = String(q.answer).trim();
+
+            let numMatch = ans.match(/\d+/);
+            if (numMatch) {
+                let n = parseInt(numMatch[0]);
+                if (n >= 1 && n <= (q.options || []).length) return n;
+            }
+
+            let upper = ans.toUpperCase();
+            if (['A', 'B', 'C', 'D', 'E'].includes(upper)) {
+                return upper.charCodeAt(0) - 64;
+            }
+
+            if (Array.isArray(q.options)) {
+                let idx = q.options.findIndex(opt => String(opt).trim() === ans);
+                if (idx !== -1) return idx + 1;
+            }
+
+            return -1;
+        }
+
         function submitTest() {
             let unanswered = 0;
             for(let i = 0; i < currentTestQuestions.length; i++) {
@@ -697,21 +884,19 @@
                 if(!confirm(`You have ${unanswered} unanswered questions. Are you sure you want to submit and score your test?`)) return;
             }
 
-            // Clear saved progress on submission
             let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex}`;
             localStorage.removeItem(storageKey);
+            clearActiveSession();
 
             let score = 0;
             let reviewHtml = '';
 
             currentTestQuestions.forEach((q, index) => {
                 let userOptIndex = userAnswers[index];
-                
-                let correctNumMatch = q.answer.match(/\d+/);
-                let correctOriginalIndex = correctNumMatch ? parseInt(correctNumMatch[0]) : -1;
+                let correctOriginalIndex = getCorrectOriginalIndex(q);
 
                 let isCorrect = false;
-                if (userOptIndex !== undefined) {
+                if (userOptIndex !== undefined && q.shuffledOptions && q.shuffledOptions[userOptIndex]) {
                     let chosenOptObj = q.shuffledOptions[userOptIndex];
                     if (chosenOptObj.originalIndex === correctOriginalIndex) {
                         isCorrect = true;
@@ -720,11 +905,14 @@
                 
                 if (isCorrect) score++;
 
+                let formattedQ = formatQuestionContent(q.question);
                 let cardClass = isCorrect ? 'review-card correct-card' : 'review-card';
-                let imageHtml = q.image_url !== "" ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` : '';
+                let imageHtml = (q.image_url && q.image_url !== "") 
+                    ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` 
+                    : '';
 
                 let reviewOptionsHtml = '<div class="options-grid">';
-                q.shuffledOptions.forEach((optObj, optIdx) => {
+                (q.shuffledOptions || []).forEach((optObj, optIdx) => {
                     let isThisCorrect = (optObj.originalIndex === correctOriginalIndex);
                     let isThisUserPicked = (userOptIndex === optIdx);
                     let letter = optionLetters[optIdx] || '';
@@ -746,14 +934,17 @@
 
                 reviewHtml += `
                     <div class="${cardClass}">
-                        <div class="question-text">${index + 1}. ${q.question}</div>
+                        <div class="question-text">
+                            ${index + 1}. ${formattedQ.text}
+                            ${formattedQ.reference}
+                        </div>
                         ${imageHtml}
                         ${reviewOptionsHtml}
                     </div>
                 `;
             });
 
-            let percentage = Math.round((score / currentTestQuestions.length) * 100);
+            let percentage = Math.round((score / currentTestQuestions.length) * 100) || 0;
             document.getElementById('final-score').innerText = `${score} / ${currentTestQuestions.length}`;
             document.getElementById('final-accuracy').innerText = `Accuracy: ${percentage}%`;
             document.getElementById('review-content').innerHTML = reviewHtml;
@@ -763,8 +954,8 @@
         }
 
         function triggerMathJax(element) {
-            if (window.MathJax) {
-                MathJax.typesetPromise([element]).catch(err => console.error('MathJax error:', err.message));
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([element]).catch(err => console.error('MathJax error:', err.message));
             }
         }
     </script>
