@@ -852,7 +852,11 @@
             });
             optionsHtml += '</div>';
 
-            let imageHtml = (q.image_url && q.image_url !== "") ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` : '';
+            let finalImageUrl = "";
+            if (q.image_url && q.image_url !== "") {
+                finalImageUrl = q.image_url.startsWith("http") ? q.image_url : `${API_BASE}/${q.image_url}`;
+            }
+            let imageHtml = finalImageUrl !== "" ? `<img src="${finalImageUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` : '';
             
             // --- NEW: Check for context and format it ---
             let contextHtml = (q.context && q.context !== "") 
@@ -964,7 +968,11 @@
 
                 let formattedQ = formatQuestionContent(q.question);
                 let cardClass = isCorrect ? 'review-card correct-card' : 'review-card';
-                let imageHtml = (q.image_url && q.image_url !== "") ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` : '';
+                let finalImageUrl = "";
+                if (q.image_url && q.image_url !== "") {
+                    finalImageUrl = q.image_url.startsWith("http") ? q.image_url : `${API_BASE}/${q.image_url}`;
+                }
+                let imageHtml = finalImageUrl !== "" ? `<img src="${finalImageUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` : '';
 
                 // --- NEW: Context formatting for the review screen ---
                 let contextHtml = (q.context && q.context !== "") 
@@ -1025,21 +1033,17 @@
             }
         }
 
-        // --- Mobile/Browser Back Button Trapping ---
-        history.replaceState({ view: 'root' }, '');
+        // --- Mobile/Browser Back Button Trapping (No Escape) ---
+        history.pushState({ view: 'root' }, '');
+        history.pushState({ view: 'internal' }, '');
 
         window.addEventListener('popstate', function (event) {
-            const activeScreen = document.querySelector('.screen.active-screen').id;
-
-            // Only allow app exit if the user is on the absolute root Subject screen
-            if (activeScreen === 'menu-screen' && currentView === 'subjects') {
-                return;
-            }
-
-            // Push state back to prevent the browser from exiting the app
+            // 1. Unconditionally push a new state forward so they can never exit
             history.pushState({ view: 'internal' }, '');
 
-            // Route backward logically based on what screen they are currently viewing
+            const activeScreen = document.querySelector('.screen.active-screen').id;
+
+            // 2. Route backward logically within the app
             if (activeScreen === 'quiz-screen') {
                 confirmExitToSubjects();
             } else if (activeScreen === 'test-screen') {
@@ -1051,12 +1055,10 @@
             }
         });
 
-        // Intercept your existing goToScreen function to push a state every time they click forward
+        // Intercept goToScreen to push state every time they navigate forward
         const originalGoToScreen = goToScreen;
         goToScreen = function(screenId) {
-            if (screenId !== 'menu-screen' || currentView !== 'subjects') {
-                history.pushState({ view: 'internal' }, '');
-            }
+            history.pushState({ view: 'internal' }, '');
             originalGoToScreen(screenId);
         };
     </script>
