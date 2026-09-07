@@ -1,6 +1,5 @@
 import json
 from sqlalchemy import create_engine, MetaData, Table, select
-from sqlalchemy.orm import sessionmaker
 
 # 1. Source (Local PostgreSQL) & Target (Neon Cloud PostgreSQL)
 LOCAL_DB_URL = "postgresql://postgres:jgsgeometry@localhost/geometry_app"
@@ -13,14 +12,17 @@ local_meta = MetaData()
 neon_meta = MetaData()
 
 try:
-    print("🔄 Connecting to local database and reading schema...")
+    print("🔄 Connecting to databases and reading schema...")
     local_questions_table = Table("questions", local_meta, autoload_with=local_engine)
     neon_questions_table = Table("questions", neon_meta, autoload_with=neon_engine)
 
     with local_engine.connect() as local_conn:
-        results = local_conn.execute(select(local_questions_table)).mappings().all()
+        # Filter out Biology so we don't ruin the clean data already on Neon
+        stmt = select(local_questions_table).where(local_questions_table.c.course != 'Biology')
+        results = local_conn.execute(stmt).mappings().all()
         total_count = len(results)
-        print(f"🚀 Found {total_count} questions in local PostgreSQL. Transferring to Neon...")
+        
+        print(f"🚀 Found {total_count} missing questions in local PostgreSQL. Transferring to Neon...")
 
         if total_count > 0:
             records_to_insert = []
@@ -47,9 +49,13 @@ try:
                 records_to_insert.append(filtered_record)
 
             with neon_engine.begin() as neon_conn:
+                # Clear existing non-Biology data on Neon to prevent duplicates if you run this twice
+                neon_conn.execute(neon_questions_table.delete().where(neon_questions_table.c.course != 'Biology'))
+                
+                # Bulk insert the local data
                 neon_conn.execute(neon_questions_table.insert(), records_to_insert)
 
-            print(f"✅ Success! Transferred all {total_count} questions to Neon cloud database.")
+            print(f"✅ Success! Restored {total_count} questions to Neon cloud database.")
         else:
             print("⚠️ No questions found to transfer.")
 

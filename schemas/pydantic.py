@@ -38,7 +38,21 @@ class QuestionOut(BaseModel):
     answer: Optional[str] = None       
     image_url: Optional[str] = None  
     image_urls: Optional[List[str]] = None # <-- ADD JUST THIS LINE  
+    from typing import List, Optional
+from pydantic import BaseModel
 
+class QuestionBase(BaseModel):
+    course: str
+    topic: str
+    context: Optional[str] = None
+    question: str
+    options: List[str]
+    answer: str
+    image_url: Optional[str] = None
+    image_urls: Optional[List[str]] = None
+    explanation: Optional[str] = None  # <--- Add this exact line
+
+# (Leave your other classes as they are)
     class Config:
         from_attributes = True
 

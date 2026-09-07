@@ -23,7 +23,8 @@ class Question(Base):
     answer = Column(String)
     image_url = Column(String)
     image_urls = Column(JSON, nullable=True) # <-- ADD JUST THIS LINE for Biology
-
+    # Add this to your existing columns
+    explanation = Column(Text, nullable=True)
 class UserProgress(Base):
     __tablename__ = "user_progress"
     id = Column(Integer, primary_key=True, index=True)

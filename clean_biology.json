@@ -1,0 +1,82 @@
+[
+  {
+    "course": "Biology",
+    "topic": "Ecosystems & Interdependence",
+    "context": "Carbon! Where Does It Come From? Where Does It Go?<br><br>On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments[cite: 5]. Earth and its atmosphere can be considered a closed system[cite: 5]. The amount of carbon in different locations within Earth's system is always changing[cite: 5].<br><br>Sea otters help maintain the carbon balance in their ecosystem[cite: 5]. Otters eat sea urchins[cite: 5]. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest[cite: 5]. Kelp are large autotrophic algae that grow much faster than most plants[cite: 5]. When kelp die, they sink into the deep ocean[cite: 5]. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete[cite: 5]. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'>",
+    "question": "Which claim about the kelp carbon pool is best supported by evidence from the information and the model above?<br><br><span style='color: #888; font-size: 0.85em;'>(Biology June 2025)</span>[cite: 5]",
+    "options": [
+      "The carbon storage is higher with the otters present because the sea otters eat the sea urchins[cite: 5, 6].",
+      "The carbon storage is higher with the sea urchins present because they control the kelp population[cite: 5].",
+      "The carbon storage is lower with the otters present because the sea otters eat the kelp[cite: 5].",
+      "The carbon storage is lower with the sea urchins present because they carry out autotrophic nutrition[cite: 5]."
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Passage Excerpt:</strong> 'Scientists calculated the carbon pool... with and without sea otters... Kelp carbon pool 101-180 gC/m2 (With Otters)' vs '8-14 gC/m2 (Without Otters)'[cite: 5]. 'Otters eat sea urchins.'[cite: 5]<br><br><strong>Why:</strong> The presence of otters reduces the sea urchin population, allowing kelp to thrive and store significantly more carbon[cite: 6]."
+  },
+  {
+    "course": "Biology",
+    "topic": "Ecosystems & Interdependence",
+    "context": "Carbon! Where Does It Come From? Where Does It Go?<br><br>On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments[cite: 5]. Earth and its atmosphere can be considered a closed system[cite: 5]. The amount of carbon in different locations within Earth's system is always changing[cite: 5].<br><br>Sea otters help maintain the carbon balance in their ecosystem[cite: 5]. Otters eat sea urchins[cite: 5]. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest[cite: 5]. Kelp are large autotrophic algae that grow much faster than most plants[cite: 5]. When kelp die, they sink into the deep ocean[cite: 5]. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete[cite: 5]. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'>",
+    "question": "Which statement uses the model to describe how kelp contributes to a reduction of carbon entering the atmosphere?<br><br><span style='color: #888; font-size: 0.85em;'>(Biology June 2025)</span>[cite: 5]",
+    "options": [
+      "Kelp produces carbon as it grows within the hydrosphere[cite: 5].",
+      "Some of the carbon stored in the dead kelp is trapped in the geosphere of the sea floor[cite: 5, 6].",
+      "Kelp produces carbon as it sinks into the hydrosphere[cite: 5].",
+      "Some of the carbon stored in kelp is added to the geosphere through cell respiration[cite: 5]."
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Passage Excerpt:</strong> 'When kelp die, they sink into the deep ocean. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete.'[cite: 5]<br><br><strong>Why:</strong> Because the dead kelp sinks to the sea floor (geosphere) and does not fully decompose, the carbon remains trapped there instead of returning to the atmosphere[cite: 6]."
+  },
+  {
+    "course": "Biology",
+    "topic": "Ecosystems & Interdependence",
+    "context": "Carbon! Where Does It Come From? Where Does It Go?<br><br>On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments[cite: 5]. Earth and its atmosphere can be considered a closed system[cite: 5]. The amount of carbon in different locations within Earth's system is always changing[cite: 5].<br><br>Sea otters help maintain the carbon balance in their ecosystem[cite: 5]. Otters eat sea urchins[cite: 5]. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest[cite: 5]. Kelp are large autotrophic algae that grow much faster than most plants[cite: 5]. When kelp die, they sink into the deep ocean[cite: 5]. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete[cite: 5]. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'>",
+    "question": "Which model identifies the process that converts light energy into chemical energy inside the kelp?<br><br><span style='color: #888; font-size: 0.85em;'>(Biology June 2025)</span>[cite: 5]",
+    "options": [
+      "6CO2 + 6H2O + ATP → C6H12O6 + 6O2[cite: 5]",
+      "C6H12O6 + 6O2 + ATP → 6CO2 + 6H2O[cite: 5]",
+      "6CO2 + 6H2O + Sunlight → C6H12O6 + 6O2[cite: 5, 6]",
+      "C6H12O6 + 6O2 + Sunlight → 6CO2 + 6H2O[cite: 5]"
+    ],
+    "answer": "3",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Passage Excerpt:</strong> 'Kelp are large autotrophic algae that grow much faster than most plants.'[cite: 5]<br><br><strong>Why:</strong> Autotrophs perform photosynthesis, which uses sunlight to convert carbon dioxide and water into glucose (chemical energy) and oxygen, matching the third equation[cite: 6]."
+  },
+  {
+    "course": "Biology",
+    "topic": "Global Sustainability",
+    "context": "Carbon! Where Does It Come From? Where Does It Go?<br><br>On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments[cite: 5]. Earth and its atmosphere can be considered a closed system[cite: 5]. The amount of carbon in different locations within Earth's system is always changing[cite: 5].<br><br>Sea otters help maintain the carbon balance in their ecosystem[cite: 5]. Otters eat sea urchins[cite: 5]. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest[cite: 5]. Kelp are large autotrophic algae that grow much faster than most plants[cite: 5]. When kelp die, they sink into the deep ocean[cite: 5]. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete[cite: 5]. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>Increased atmospheric carbon dioxide has been linked to changes within marine ecosystems[cite: 5]. When CO2 combines with water, it produces carbonic acid, lowering the water's pH[cite: 5]. A pH of less than 7.8 can interfere with the ability of some marine organisms to make shells and skeletons[cite: 5]. These organisms include corals, mussels, plankton, seastars, and sea urchins[cite: 5]. The graph below shows the relationship between atmospheric CO2 concentration and the pH of seawater[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q4.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'>",
+    "question": "If the trend in atmospheric CO2 levels continues, sea urchin populations may be impacted. Describe evidence from the graph that supports this claim.<br><br><span style='color: #888; font-size: 0.85em;'>(Biology June 2025)</span>[cite: 5]",
+    "options": [
+      "As CO2 increases, pH decreases[cite: 6]. Less than 7.8 would prevent sea urchins from making skeletons, causing their population to decrease[cite: 6].",
+      "As CO2 decreases, pH increases, allowing sea urchins to overpopulate and destroy kelp forests[cite: 5].",
+      "As pH increases, CO2 decreases, preventing sea urchins from performing cellular respiration[cite: 5].",
+      "As CO2 increases, pH increases, creating a basic environment where sea urchin populations thrive[cite: 5]."
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Passage Excerpt:</strong> 'A pH of less than 7.8 can interfere with the ability of some marine organisms to make shells and skeletons... The graph below shows the relationship between atmospheric CO2 concentration and the pH of seawater.'[cite: 5]<br><br><strong>Why:</strong> The graph shows that rising CO2 levels cause pH levels to drop[cite: 6]. If the pH drops below 7.8, sea urchins cannot build their skeletons and will likely die off[cite: 6]."
+  },
+  {
+    "course": "Biology",
+    "topic": "Global Sustainability",
+    "context": "Carbon! Where Does It Come From? Where Does It Go?<br><br>On Earth, carbon compounds are found in the oceans, atmosphere, and living organisms, as well as stored in rocks and sediments[cite: 5]. Earth and its atmosphere can be considered a closed system[cite: 5]. The amount of carbon in different locations within Earth's system is always changing[cite: 5].<br><br>Sea otters help maintain the carbon balance in their ecosystem[cite: 5]. Otters eat sea urchins[cite: 5]. Eating sea urchins is important, as sea urchins are herbivores that can destroy a kelp forest[cite: 5]. Kelp are large autotrophic algae that grow much faster than most plants[cite: 5]. When kelp die, they sink into the deep ocean[cite: 5]. The low oxygen conditions of the sea floor cause decomposition to be slow or incomplete[cite: 5]. Scientists calculated the carbon pool (how much carbon kelp stores) with and without sea otters, as shown in the model below[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>Increased atmospheric carbon dioxide has been linked to changes within marine ecosystems[cite: 5]. When CO2 combines with water, it produces carbonic acid, lowering the water's pH[cite: 5]. A pH of less than 7.8 can interfere with the ability of some marine organisms to make shells and skeletons[cite: 5]. These organisms include corals, mussels, plankton, seastars, and sea urchins[cite: 5]. The graph below shows the relationship between atmospheric CO2 concentration and the pH of seawater[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q4.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>The following diagram shows some information about the cycling of carbon[cite: 5].<br><br><img src='images/questions_image/biology/bio_jun25_q5.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>The model above shows the equation for how sea urchins make their shells[cite: 5]. Calcium ions and carbonate ions produce calcium carbonate[cite: 5].",
+    "question": "As ocean acidification increases, the amount of available carbonate ions decreases. Use the model and information provided to describe how the cycling of carbon between the biosphere and at least one other sphere is affected as environmental conditions change.<br><br><span style='color: #888; font-size: 0.85em;'>(Biology June 2025)</span>[cite: 5]",
+    "options": [
+      "Decreased CO2 in the atmosphere causes the biosphere to release more carbonate ions into the geosphere[cite: 5].",
+      "Increased CO2 in the atmosphere causes oceans in the hydrosphere to be more acidic[cite: 6]. The decrease in pH limits carbonate ions, affecting organisms in the biosphere that need them to survive[cite: 6].",
+      "Ocean acidification increases the amount of calcium carbonate available, causing overpopulation of shelled organisms in the biosphere[cite: 5].",
+      "Bicarbonate ions move directly from the hydrosphere into the atmosphere, completely stopping the carbon cycle[cite: 5]."
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Passage Excerpt:</strong> 'Calcium ions and carbonate ions produce calcium carbonate... As ocean acidification increases, the amount of available carbonate ions decreases.'[cite: 5]<br><br><strong>Why:</strong> More CO2 in the atmosphere leads to ocean acidification in the hydrosphere, which consumes the carbonate ions that organisms in the biosphere (like sea urchins) desperately need to build their shells[cite: 6]."
+  }
+]
