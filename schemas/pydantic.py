@@ -36,7 +36,8 @@ class QuestionOut(BaseModel):
     question: str
     options: Optional[List[str]] = None
     answer: Optional[str] = None       
-    image_url: Optional[str] = None    
+    image_url: Optional[str] = None  
+    image_urls: Optional[List[str]] = None # <-- ADD JUST THIS LINE  
 
     class Config:
         from_attributes = True

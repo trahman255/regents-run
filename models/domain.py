@@ -22,6 +22,7 @@ class Question(Base):
     options = Column(JSON)
     answer = Column(String)
     image_url = Column(String)
+    image_urls = Column(JSON, nullable=True) # <-- ADD JUST THIS LINE for Biology
 
 class UserProgress(Base):
     __tablename__ = "user_progress"
