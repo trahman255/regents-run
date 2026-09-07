@@ -441,7 +441,11 @@
 
         const optionLetters = ['A', 'B', 'C', 'D', 'E'];
 
-        // --- Helper Function: Split Question Text & Exam Reference ---
+        /**
+         * FUNCTION: formatQuestionContent
+         * Parses the raw question text to extract the standardized exam reference tag (e.g. "(Biology August 2025)")
+         * and separates it from the main question body to display it styled underneath.
+         */
         function formatQuestionContent(rawQuestionText) {
             let refMatch = rawQuestionText.match(/\((?:ALG|GEO|CCALG|LE|ES|CHEM|PHYS|ELA|GLOBAL|US)\s+[^)]+\)/i) ||
                            rawQuestionText.match(/\([^)]*(?:Jan(?:uary)?|Jun(?:e)?|Aug(?:ust)?)\s+\d{4}[^)]*\)/i);
@@ -461,7 +465,11 @@
             };
         }
 
-        // --- Helper Function: Scramble Array ---
+        /**
+         * FUNCTION: shuffleArray
+         * Takes an array and randomly shuffles its contents in place using the Fisher-Yates algorithm.
+         * Used to randomize multiple choice options so the correct answer isn't always in the same position.
+         */
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -470,7 +478,11 @@
             return array;
         }
 
-        // --- Auto-Save and Restore Engine ---
+        /**
+         * FUNCTION: syncActiveSessionToStorage
+         * Saves the current state of the active test (questions, user answers, current index, etc.)
+         * to the browser's localStorage. This allows the user to resume their exact progress if they refresh.
+         */
         function syncActiveSessionToStorage() {
             if (currentTestQuestions.length > 0) {
                 const sessionPayload = {
@@ -487,10 +499,20 @@
             }
         }
 
+        /**
+         * FUNCTION: clearActiveSession
+         * Removes the currently active, in-progress test data from localStorage.
+         * Called when a test is successfully submitted or deliberately exited.
+         */
         function clearActiveSession() {
             localStorage.removeItem(ACTIVE_SESSION_KEY);
         }
 
+        /**
+         * FUNCTION: initializeApp
+         * Fired when the body loads. Checks localStorage to see if an active test session exists.
+         * If yes, it loads and resumes that test. If no, it renders the main subjects menu.
+         */
         function initializeApp() {
             const savedSession = localStorage.getItem(ACTIVE_SESSION_KEY);
             if (savedSession) {
@@ -520,6 +542,12 @@
             renderSubjects();
         }
 
+        /**
+         * FUNCTION: confirmExitToSubjects
+         * Triggered when the user clicks the logo/brand or the "Subjects" nav link.
+         * If they are in the middle of a test, it prompts them to confirm losing their active session.
+         * If confirmed, clears the session and returns to the home menu.
+         */
         function confirmExitToSubjects() {
             const activeScreen = document.querySelector('.screen.active-screen');
             if (activeScreen && activeScreen.id === 'quiz-screen') {
@@ -531,7 +559,11 @@
             renderSubjects();
         }
 
-        // --- Screen Navigation Logic ---
+        /**
+         * FUNCTION: goToScreen
+         * Hides all UI screens and displays only the specific screen ID requested.
+         * Also adjusts the top navigation bar and footer visibility based on whether the user is taking a quiz.
+         */
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
             document.getElementById(screenId).classList.add('active-screen');
@@ -553,7 +585,11 @@
             window.scrollTo(0,0);
         }
 
-        // --- Dynamic Menu Navigation Flow ---
+        /**
+         * FUNCTION: navigateMenuBack
+         * Controls the logic for the "Back" arrow button on the main menu screens.
+         * Routes the user backward through the hierarchy: Topic -> Course -> Subject.
+         */
         function navigateMenuBack() {
             if (currentView === "topics" || currentView === "course-modes") {
                 renderCourses(currentSubject);
@@ -562,6 +598,10 @@
             }
         }
 
+        /**
+         * FUNCTION: renderSubjects
+         * Populates and displays the main home screen grid showing the high-level subjects (Math, Science, etc.)
+         */
         function renderSubjects() {
             currentView = "subjects";
             document.getElementById("menu-title").innerText = "Select a Subject";
@@ -581,6 +621,10 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: renderCourses
+         * Populates the grid with courses (e.g., Algebra 1, Biology) belonging to the selected Subject.
+         */
         function renderCourses(subject) {
             currentView = "courses";
             currentSubject = subject;
@@ -603,6 +647,10 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: renderCourseModes
+         * Displays the two main learning pathways for a selected course: Topic-wise or Full Regents Exam simulation.
+         */
         function renderCourseModes(subject, course) {
             currentView = "course-modes";
             currentSubject = subject;
@@ -648,6 +696,10 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: renderTopics
+         * Populates the grid with all specific chapters/topics available for the selected course.
+         */
         function renderTopics(subject, course) {
             currentView = "topics";
             currentSubject = subject;
@@ -670,6 +722,10 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: handlePracticeAnotherTopic
+         * Triggered from the review screen. Returns the user to the list of topics for the course they were just practicing.
+         */
         function handlePracticeAnotherTopic() {
             if (currentSubject && currentCourse && nycCurriculum[currentSubject] && nycCurriculum[currentSubject].courses[currentCourse]) {
                 renderTopics(currentSubject, currentCourse);
@@ -678,7 +734,11 @@
             }
         }
 
-        // --- Test API Fetching ---
+        /**
+         * FUNCTION: fetchAndLoadTopic
+         * Makes an API call to the backend to retrieve all database questions matching the selected topic.
+         * If successful, routes the user to the module selection screen.
+         */
         async function fetchAndLoadTopic(selectedTopic) {
             try {
                 let res = await fetch(`${API_BASE}/tests/topic/${encodeURIComponent(selectedTopic)}`);
@@ -695,6 +755,10 @@
             }
         }
 
+        /**
+         * FUNCTION: startRegentsExam
+         * Makes an API call to fetch a randomized set of mixed questions for a full course to simulate a real exam.
+         */
         async function startRegentsExam(course, limit = 24) {
             try {
                 let res = await fetch(`${API_BASE}/tests/mixed?course=${encodeURIComponent(course)}&limit=${limit}`);
@@ -713,7 +777,11 @@
             }
         }
 
-        // --- Test Selection Rendering (Topic Modules) ---
+        /**
+         * FUNCTION: renderTestModules
+         * Breaks a large topic array of questions into bite-sized "Modules" (e.g., 20 questions each).
+         * Displays the modules in a grid and checks if the user has a saved, incomplete attempt for any of them.
+         */
         function renderTestModules() {
             document.getElementById('test-screen-title').innerText = currentTopic;
             let testGrid = document.getElementById('test-grid');
@@ -741,6 +809,11 @@
             goToScreen('test-screen');
         }
 
+        /**
+         * FUNCTION: startTest
+         * Initializes a standard topic-module test. Checks if there is a saved instance in localStorage.
+         * If there is, asks the user if they want to resume. Otherwise, slices the questions and starts fresh.
+         */
         function startTest(testIndex) {
             currentTestIndex = testIndex;
             let storageKey = `regents_run_saved_${currentTopic}_${testIndex}`;
@@ -771,6 +844,11 @@
             startCustomTest(questionsSubset, `Module ${testIndex + 1}: ${currentTopic}`);
         }
 
+        /**
+         * FUNCTION: startCustomTest
+         * Boots up the quiz interface with a provided array of questions.
+         * Shuffles the multiple choice options internally for every question before starting.
+         */
         function startCustomTest(questions, customTitle = null) {
             currentTestQuestions = questions.map(q => {
                 let mappedOptions = (q.options || []).map((opt, idx) => ({ text: opt, originalIndex: idx + 1 }));
@@ -789,6 +867,11 @@
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: saveAndExitTest
+         * Explicitly saves the current test progress to a persistent localStorage key (specific to the module/exam).
+         * Then clears the active volatile session and kicks the user back to the home menu.
+         */
         function saveAndExitTest() {
             let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex || 'custom'}`;
             let payload = {
@@ -802,7 +885,11 @@
             renderSubjects();
         }
 
-        // --- Quiz Execution & Navigation ---
+        /**
+         * FUNCTION: renderNavBar
+         * Re-draws the SAT-style question bubble navigation bar at the top of the quiz screen.
+         * Highlights the currently active question and colors answered questions blue.
+         */
         function renderNavBar() {
             let navBar = document.getElementById('q-nav-bar');
             navBar.innerHTML = '';
@@ -831,6 +918,12 @@
             document.getElementById('progress-bar').style.width = progress + '%';
         }
 
+        /**
+         * FUNCTION: renderQuestion
+         * Builds the HTML for the currently active question in the quiz interface.
+         * Injects the context passage, images, question text, and the shuffled A/B/C/D option buttons.
+         * Finally, triggers MathJax to render any mathematical formulas.
+         */
         function renderQuestion() {
             const appDiv = document.getElementById('app');
             let q = currentTestQuestions[currentQuestionIndex];
@@ -865,7 +958,7 @@
                 imageHtml = `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px; display: block;">`;
             }
             
-            // --- NEW: Check for context and format it ---
+            // Render the full context for the testing interface
             let contextHtml = (q.context && q.context !== "") 
                 ? `<div style="margin-bottom: 20px; padding: 16px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; line-height: 1.6; font-size: 0.95em; color: #333;">
                      ${q.context}
@@ -874,7 +967,7 @@
 
             appDiv.innerHTML = `
                 <div class="question-card">
-                    ${contextHtml} <!-- Injected here, above the question -->
+                    ${contextHtml}
                     <div class="question-text">
                         ${currentQuestionIndex + 1}. ${formattedQ.text}
                         ${formattedQ.reference}
@@ -891,6 +984,11 @@
             triggerMathJax(appDiv);
         }
 
+        /**
+         * FUNCTION: selectAnswer
+         * Triggered when a user clicks an option (A/B/C/D). Records their selection to the `userAnswers` object.
+         * Updates UI selection states and auto-saves the session.
+         */
         function selectAnswer(btnElement, selectedOptIndex) {
             userAnswers[currentQuestionIndex] = selectedOptIndex;
             let allBtns = btnElement.parentElement.querySelectorAll('.option-btn');
@@ -900,25 +998,36 @@
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: navigateQuestion
+         * Moves the active question index forward or backward (+1 or -1) when Prev/Next buttons are clicked.
+         */
         function navigateQuestion(direction) {
             currentQuestionIndex += direction;
             renderQuestion();
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: jumpToQuestion
+         * Jumps directly to a specific question index when a user clicks a bubble in the top navigation bar.
+         */
         function jumpToQuestion(index) {
             currentQuestionIndex = index;
             renderQuestion();
             syncActiveSessionToStorage();
         }
 
-        // --- Robust Answer Index Resolver ---
+        /**
+         * FUNCTION: getCorrectOriginalIndex
+         * Crucial grading function. Takes the raw answer string from the database and maps it
+         * to the original 1-based index (1, 2, 3, 4) representing the correct option before shuffling occurred.
+         */
         function getCorrectOriginalIndex(q) {
             if (q.answer === undefined || q.answer === null) return -1;
             let ans = String(q.answer).trim();
 
             // Case 1: Match EXACTLY a number or a number in parentheses (e.g., "1", "(2)")
-            // The ^ and $ ensure it doesn't accidentally match numbers hidden inside text sentences
             let numMatch = ans.match(/^\(?(\d+)\)?$/);
             if (numMatch) {
                 let n = parseInt(numMatch[1]);
@@ -939,8 +1048,12 @@
 
             return -1;
         }
-
-        // --- Submission and Grading ---
+/**
+         * FUNCTION: submitTest
+         * Fired when the "Finish Test" button is clicked. 
+         * Warns if questions are unanswered. If proceeding, it grades every question against the mapped original index,
+         * clears active storage, calculates the final score, and generates the Review Screen HTML with concise explanations.
+         */
         function submitTest() {
             let unanswered = 0;
             for(let i = 0; i < currentTestQuestions.length; i++) {
@@ -987,12 +1100,21 @@
                     imageHtml = `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px; display: block;">`;
                 }
 
-                // --- NEW: Context formatting for the review screen ---
-                let contextHtml = (q.context && q.context !== "") 
-                    ? `<div style="margin-bottom: 16px; padding: 12px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; line-height: 1.5; font-size: 0.9em; color: #333;">
-                         ${q.context}
-                       </div>` 
-                    : '';
+                // --- Targeted Explanation Logic ---
+                // If a precise explanation exists, prioritize it. Otherwise fallback to full context.
+                let reviewContextHtml = '';
+                if (q.explanation && q.explanation !== "") {
+                    reviewContextHtml = `
+                        <div class="explanation-container" style="background-color: #f8f9fa; padding: 16px; border-left: 4px solid #007bff; border-radius: 4px; margin-bottom: 20px; line-height: 1.6; font-size: 0.95em; color: #333;">
+                            <strong style="color: #0052FF; font-size: 1.05em;">Relevant Context & Explanation:</strong><br>
+                            ${q.explanation}
+                        </div>`;
+                } else if (q.context && q.context !== "") {
+                    reviewContextHtml = `
+                        <div class="context-container" style="margin-bottom: 20px; padding: 12px; background-color: #f8f9fa; border-left: 4px solid #94A3B8; border-radius: 4px; line-height: 1.5; font-size: 0.9em; color: #333;">
+                            ${q.context}
+                        </div>`;
+                }
 
                 let reviewOptionsHtml = '<div class="options-grid">';
                 (q.shuffledOptions || []).forEach((optObj, optIdx) => {
@@ -1015,9 +1137,10 @@
                 });
                 reviewOptionsHtml += '</div>';
 
+                // --- Final Card Assembly ---
                 reviewHtml += `
                     <div class="${cardClass}">
-                        ${contextHtml} <!-- Injected here, above the question -->
+                        ${reviewContextHtml}
                         <div class="question-text">
                             ${index + 1}. ${formattedQ.text}
                             ${formattedQ.reference}
@@ -1037,7 +1160,11 @@
             triggerMathJax(document.getElementById('review-content'));
         }
 
-        // --- MathJax Typeset Trigger ---
+        /**
+         * FUNCTION: triggerMathJax
+         * Instructs the MathJax rendering engine to re-scan the provided DOM element and render
+         * any newly injected LaTeX formatting into visual math equations.
+         */
         function triggerMathJax(element) {
             if (window.MathJax && window.MathJax.typesetPromise) {
                 window.MathJax.typesetPromise([element]).catch(err => console.error('MathJax error:', err.message));
