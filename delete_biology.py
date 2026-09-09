@@ -5,7 +5,7 @@ def delete_aug25_biology():
     db = SessionLocal()
     
     # Deletes only the rows where the course is Biology
-    db.execute(text("DELETE FROM questions WHERE course = 'Biology';"))
+    db.execute(text("DELETE FROM questions WHERE course = 'Biology' AND question LIKE '%(Biology August 2025)%';"))
     db.commit()
     db.close()
     
