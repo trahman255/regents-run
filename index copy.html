@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regents Run</title>
-    <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Material Icons Round -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
         /* Modern CSS Variables Matching the Logo Theme */
         :root {
-            --primary: #061a48;
+            --primary: #061a48; /* Custom dark navy */
             --primary-hover: #0a2560;
-            --accent-blue: #0052FF;
+            --accent-blue: #0052FF; /* Lighter blue from the logo */
             --bg-color: #F8FAFC;
             --surface: #FFFFFF;
             --text-main: #0B132B;
@@ -93,7 +90,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Test Interface Header */
+        /* Test Interface Header (SAT Style) */
         .test-header {
             display: flex;
             justify-content: space-between;
@@ -125,6 +122,7 @@
         }
         .question-text { font-size: 1.25em; margin-bottom: 24px; font-weight: 500; color: var(--text-main); }
         
+        /* Exam Reference Style */
         .exam-ref { 
             display: block;
             font-weight: 400; 
@@ -146,6 +144,7 @@
         }
         .option-btn:hover { background-color: #F8FAFC; border-color: #CBD5E1; }
         
+        /* A/B/C/D Bubbles */
         .opt-letter { 
             display: flex; justify-content: center; align-items: center; 
             width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--text-muted); 
@@ -173,7 +172,7 @@
         
         .action-row { display: flex; justify-content: space-between; margin-top: 24px; }
 
-        /* Question Navigation Bubbles */
+        /* SAT-Style Question Bubbles */
         .q-nav-bar { 
             display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; 
             background: var(--surface); padding: 16px; border-radius: 12px; border: 1px solid var(--border-light); 
@@ -202,7 +201,7 @@
         .wrong-opt { background-color: var(--wrong-bg); border-color: var(--wrong-border); color: #991B1B; opacity: 0.8;}
         .wrong-opt .opt-letter { border-color: var(--wrong-border); color: var(--wrong-border); }
 
-        /* Footer */
+        /* Footer Styles */
         .footer {
             text-align: center;
             padding: 24px;
@@ -212,24 +211,28 @@
             background-color: var(--surface);
             margin-top: auto;
         }
-        .footer p { margin: 0; font-weight: 500; }
+        .footer p {
+            margin: 0;
+            font-weight: 500;
+        }
     </style>
 
-    <!-- MathJax Configuration -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
-        svg: { fontCache: 'global' }
+        svg: {
+          fontCache: 'global'
+        }
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    
 </head>
 <body onload="initializeApp()">
 
-    <!-- Persistent Top Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-brand" onclick="confirmExitToSubjects()">
             <img src="images/regentsrun.png" alt="Regents Run Logo" style="height: 36px; width: auto; object-fit: contain;">
@@ -239,25 +242,28 @@
         </div>
         <div class="nav-links" id="nav-links-container">
             <span onclick="confirmExitToSubjects()"><span class="material-icons-round" style="font-size: 20px;">category</span> Subjects</span>
-            <span onclick="if(currentSubject) renderCourses(currentSubject); else renderSubjects();"><span class="material-icons-round" style="font-size: 20px;">menu_book</span> Courses</span>
-            <span onclick="if(currentCourse) renderTopics(currentSubject, currentCourse); else renderSubjects();"><span class="material-icons-round" style="font-size: 20px;">format_list_bulleted</span> Topics</span>
         </div>
     </nav>
 
-    <!-- Dynamic Menu Screen -->
     <div id="menu-screen" class="screen active-screen">
+        <div id="welcome-banner" style="background: var(--surface); border: 1px solid var(--border-light); border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
+            <h1 style="font-size: 2em; font-weight: 800; color: var(--primary); margin-bottom: 8px; text-align:center;">Master the New York State Regents 🚀</h1>
+            <p style="font-size: 1.05em; color: var(--text-muted); margin: 0; line-height: 1.6;">
+                Practice real past exam questions, target specific topic modules, and prepare with confidence for test day. Built by  NYC students, for NYC students.
+            </p>
+        </div>
+
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
             <button id="back-btn-menu" class="btn btn-outline" style="display: none; padding: 8px 12px;" onclick="navigateMenuBack()">
                 <span class="material-icons-round">arrow_back</span>
             </button>
-            <h2 id="menu-title" style="text-align: left; font-size: 1.8em; margin: 0;">Select a Subject</h2>
+            <h2 id="menu-title" style="text-align: left; font-size: 1.6em; margin: 0;">Select a Subject</h2>
         </div>
         <div class="grid" id="menu-grid"></div>
     </div>
 
-    <!-- Test Selection Screen -->
     <div id="test-screen" class="screen">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
             <button class="btn btn-outline" style="padding: 8px 12px;" onclick="renderTopics(currentSubject, currentCourse)">
                 <span class="material-icons-round">arrow_back</span>
             </button>
@@ -266,7 +272,6 @@
         <div class="grid" id="test-grid"></div>
     </div>
 
-    <!-- Quiz Screen -->
     <div id="quiz-screen" class="screen">
         <div class="test-header">
             <div>
@@ -297,14 +302,13 @@
         </div>
     </div>
 
-    <!-- Review Screen -->
     <div id="review-screen" class="screen">
         <div class="score-banner">
             <div id="final-score">800</div>
             <div class="score-subtitle" id="final-accuracy">Total Score</div>
             <br>
             <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                <button class="btn btn-primary" onclick="renderTopics(currentSubject, currentCourse)">Practice Another Topic</button>
+                <button class="btn btn-primary" onclick="handlePracticeAnotherTopic()">Practice Another Topic</button>
                 <button class="btn btn-outline" onclick="renderSubjects()">
                     <span class="material-icons-round">home</span> Return to Home
                 </button>
@@ -315,16 +319,15 @@
         <div id="review-content"></div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer" id="app-footer">
-        <p>Dedicated to helping fellow NYC students conquer the Regents. Made with passion by Tawfiqur Rahman.</p>
+        <p>© 2026 Regents Run. Not affiliated with NYSED</p>
     </footer>
 
     <script>
         const API_BASE = 'https://regents-run-api.onrender.com';
         const ACTIVE_SESSION_KEY = 'regents_run_active_session';
 
-        // Uniform curriculum structure across all courses
+        // --- NYC High School Curriculum Database ---
         const nycCurriculum = {
             "Math": {
                 icon: "calculate",
@@ -332,31 +335,26 @@
                     "Algebra I": {
                         icon: "functions",
                         topics: [
-                            "Linear Equations and Inequalities",
-                            "Systems of Linear Equations and Inequalities",
-                            "Function Basics and Notation",
-                            "Linear Functions and Graphing",
-                            "Exponential Functions and Equations",
-                            "Polynomial Operations",
-                            "Factoring Polynomials",
-                            "Quadratic Functions and Equations",
                             "One-Variable Statistics",
-                            "Two-Variable Data and Regressions"
+                            "Linear Equations, Inequalities, and Systems",
+                            "Two-Variable Statistics",
+                            "Functions",
+                            "Introduction to Exponential Functions",
+                            "Introduction to Quadratic Functions",
+                            "Quadratic Equations"
                         ]
                     },
                     "Geometry": {
-                        icon: "square_foot",
+                        icon: "architecture",
                         topics: [
-                            "Essential Geometric Tools and Concepts",
-                            "Transformations, Rigid Motions, and Congruence",
-                            "Euclidean Triangle Proofs",
-                            "Geometric Constructions",
-                            "Tools of Coordinate Geometry",
-                            "Quadrilaterals",
-                            "Dilations and Similarity",
+                            "Constructions and Rigid Transformations",
+                            "Congruence",
+                            "Similarity",
                             "Right Triangle Trigonometry",
-                            "Circle Geometry",
-                            "Geometric Measurement and Modeling"
+                            "Solid Geometry",
+                            "Coordinate Geometry",
+                            "Circles",
+                            "Conditional Probability"
                         ]
                     },
                     "Algebra II": {
@@ -377,93 +375,57 @@
                 }
             },
             "Science": {
-                icon: "science",
+                icon: "biotech",
                 courses: {
-                    "Living Environment": {
-                        icon: "biotech",
+                    "Biology": {
+                        icon: "coronavirus",
                         topics: [
-                            "Cells & Biochemistry",
-                            "Genetics & Heredity",
-                            "Evolution",
-                            "Human Body Systems",
-                            "Ecology"
+                            "Homeostasis & Body Systems",
+                            "Cell Biology & Immune Response",
+                            "Genetics & Natural Selection",
+                            "Ecosystems & Interdependence",
+                            "Global Sustainability"
                         ]
                     },
-                    "Earth Science": {
+                    "Earth & Space Science": {
                         icon: "public",
-                        topics: [
-                            "Astronomy",
-                            "Meteorology & Weather",
-                            "Geology & Minerals",
-                            "Plate Tectonics",
-                            "Earth's History"
-                        ]
+                        topics: ["Astronomy", "Meteorology & Weather", "Geology & Minerals", "Plate Tectonics", "Earth's History"]
                     },
                     "Chemistry": {
                         icon: "science",
-                        topics: [
-                            "Atomic Structure",
-                            "Periodic Table",
-                            "Chemical Bonding",
-                            "Stoichiometry",
-                            "Acids, Bases & Salts"
-                        ]
+                        topics: ["Atomic Structure", "Periodic Table", "Chemical Bonding", "Stoichiometry", "Acids, Bases & Salts"]
                     },
                     "Physics": {
                         icon: "electric_bolt",
-                        topics: [
-                            "Mechanics & Kinematics",
-                            "Energy & Work",
-                            "Electricity & Magnetism",
-                            "Waves & Light",
-                            "Modern Physics"
-                        ]
+                        topics: ["Mechanics & Kinematics", "Energy & Work", "Electricity & Magnetism", "Waves & Light", "Modern Physics"]
                     }
                 }
             },
             "English Language Arts": {
                 icon: "menu_book",
                 courses: {
-                    "ELA (All Grades)": {
+                    "ELA": {
                         icon: "edit_note",
-                        topics: [
-                            "Reading Comprehension",
-                            "Text Analysis",
-                            "Argumentative Writing",
-                            "Narrative Structure",
-                            "Grammar & Mechanics"
-                        ]
+                        topics: ["Reading Comprehension", "Text Analysis", "Argumentative Writing", "Narrative Structure", "Grammar & Mechanics"]
                     }
                 }
             },
             "Social Studies": {
-                icon: "public",
+                icon: "account_balance",
                 courses: {
-                    "Global History & Geography": {
+                    "Global History & Geography II": {
                         icon: "history_edu",
-                        topics: [
-                            "Early Civilizations",
-                            "Classical Empires",
-                            "Middle Ages",
-                            "Age of Revolutions",
-                            "World Conflicts (WWI/WWII)"
-                        ]
+                        topics: ["Early Civilizations", "Classical Empires", "Middle Ages", "Age of Revolutions", "World Conflicts (WWI/WWII)"]
                     },
                     "U.S. History & Government": {
                         icon: "gavel",
-                        topics: [
-                            "Colonial Foundations",
-                            "The Constitution",
-                            "Civil War & Reconstruction",
-                            "Industrialization",
-                            "Modern America"
-                        ]
+                        topics: ["Colonial Foundations", "The Constitution", "Civil War & Reconstruction", "Industrialization", "Modern America"]
                     }
                 }
             }
         };
 
-        // Application State
+        // --- Application State Variables ---
         let currentTopicQuestions = [];
         let currentTestQuestions = [];
         let userAnswers = {}; 
@@ -475,9 +437,15 @@
         let currentTopic = "";
         let currentTestIndex = null;
         let currentQuizTitle = "";
+        let currentView = "subjects"; // 'subjects', 'courses', 'course-modes', 'topics'
 
         const optionLetters = ['A', 'B', 'C', 'D', 'E'];
 
+        /**
+         * FUNCTION: formatQuestionContent
+         * Parses the raw question text to extract the standardized exam reference tag (e.g. "(Biology August 2025)")
+         * and separates it from the main question body to display it styled underneath.
+         */
         function formatQuestionContent(rawQuestionText) {
             let refMatch = rawQuestionText.match(/\((?:ALG|GEO|CCALG|LE|ES|CHEM|PHYS|ELA|GLOBAL|US)\s+[^)]+\)/i) ||
                            rawQuestionText.match(/\([^)]*(?:Jan(?:uary)?|Jun(?:e)?|Aug(?:ust)?)\s+\d{4}[^)]*\)/i);
@@ -497,6 +465,11 @@
             };
         }
 
+        /**
+         * FUNCTION: shuffleArray
+         * Takes an array and randomly shuffles its contents in place using the Fisher-Yates algorithm.
+         * Used to randomize multiple choice options so the correct answer isn't always in the same position.
+         */
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -505,6 +478,11 @@
             return array;
         }
 
+        /**
+         * FUNCTION: syncActiveSessionToStorage
+         * Saves the current state of the active test (questions, user answers, current index, etc.)
+         * to the browser's localStorage. This allows the user to resume their exact progress if they refresh.
+         */
         function syncActiveSessionToStorage() {
             if (currentTestQuestions.length > 0) {
                 const sessionPayload = {
@@ -521,10 +499,20 @@
             }
         }
 
+        /**
+         * FUNCTION: clearActiveSession
+         * Removes the currently active, in-progress test data from localStorage.
+         * Called when a test is successfully submitted or deliberately exited.
+         */
         function clearActiveSession() {
             localStorage.removeItem(ACTIVE_SESSION_KEY);
         }
 
+        /**
+         * FUNCTION: initializeApp
+         * Fired when the body loads. Checks localStorage to see if an active test session exists.
+         * If yes, it loads and resumes that test. If no, it renders the main subjects menu.
+         */
         function initializeApp() {
             const savedSession = localStorage.getItem(ACTIVE_SESSION_KEY);
             if (savedSession) {
@@ -554,6 +542,12 @@
             renderSubjects();
         }
 
+        /**
+         * FUNCTION: confirmExitToSubjects
+         * Triggered when the user clicks the logo/brand or the "Subjects" nav link.
+         * If they are in the middle of a test, it prompts them to confirm losing their active session.
+         * If confirmed, clears the session and returns to the home menu.
+         */
         function confirmExitToSubjects() {
             const activeScreen = document.querySelector('.screen.active-screen');
             if (activeScreen && activeScreen.id === 'quiz-screen') {
@@ -565,6 +559,11 @@
             renderSubjects();
         }
 
+        /**
+         * FUNCTION: goToScreen
+         * Hides all UI screens and displays only the specific screen ID requested.
+         * Also adjusts the top navigation bar and footer visibility based on whether the user is taking a quiz.
+         */
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
             document.getElementById(screenId).classList.add('active-screen');
@@ -586,17 +585,25 @@
             window.scrollTo(0,0);
         }
 
+        /**
+         * FUNCTION: navigateMenuBack
+         * Controls the logic for the "Back" arrow button on the main menu screens.
+         * Routes the user backward through the hierarchy: Topic -> Course -> Subject.
+         */
         function navigateMenuBack() {
-            if (document.getElementById("menu-title").innerText.includes("Topics")) {
+            if (currentView === "topics" || currentView === "course-modes") {
                 renderCourses(currentSubject);
-            } else if (document.getElementById("menu-title").innerText.includes("Courses")) {
+            } else if (currentView === "courses") {
                 renderSubjects();
             }
         }
 
+        /**
+         * FUNCTION: renderSubjects
+         * Populates and displays the main home screen grid showing the high-level subjects (Math, Science, etc.)
+         */
         function renderSubjects() {
-            currentSubject = "";
-            currentCourse = "";
+            currentView = "subjects";
             document.getElementById("menu-title").innerText = "Select a Subject";
             document.getElementById("back-btn-menu").style.display = "none";
             
@@ -614,9 +621,13 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: renderCourses
+         * Populates the grid with courses (e.g., Algebra 1, Biology) belonging to the selected Subject.
+         */
         function renderCourses(subject) {
+            currentView = "courses";
             currentSubject = subject;
-            currentCourse = "";
             document.getElementById("menu-title").innerText = `${subject} Courses`;
             document.getElementById("back-btn-menu").style.display = "block";
             
@@ -627,8 +638,8 @@
             for (let course in courses) {
                 let courseData = courses[course];
                 grid.innerHTML += `
-                    <div class="card" onclick="renderTopics('${subject}', '${course}')">
-                        <span class="material-icons-round">${courseData.icon || 'class'}</span>
+                    <div class="card" onclick="renderCourseModes('${subject}', '${course}')">
+                        <span class="material-icons-round">${courseData.icon}</span>
                         ${course}
                     </div>
                 `;
@@ -636,7 +647,61 @@
             goToScreen('menu-screen');
         }
 
+        /**
+         * FUNCTION: renderCourseModes
+         * Displays the two main learning pathways for a selected course: Topic-wise or Full Regents Exam simulation.
+         */
+        function renderCourseModes(subject, course) {
+            currentView = "course-modes";
+            currentSubject = subject;
+            currentCourse = course;
+            document.getElementById("menu-title").innerText = `${course} Practice`;
+            document.getElementById("back-btn-menu").style.display = "block";
+            
+            let grid = document.getElementById("menu-grid");
+
+            // Course-specific multiple-choice question counts
+            let regentsQuestionCounts = {
+                "Algebra I": 24,
+                "Geometry": 24,
+                "Algebra II": 24,
+                "Chemistry": 50,
+                "Physics": 50,
+                "Global History & Geography II": 28,
+                "U.S. History & Government": 28,
+                "ELA": 24
+            };
+
+            let qCount = regentsQuestionCounts[course] || 24;
+
+            // Exclude Earth & Space Science from Regents Simulation
+            let hasRegentsSimulation = (course !== "Earth & Space Science");
+
+            let regentsCardHtml = hasRegentsSimulation ? `
+                <div class="card" onclick="startRegentsExam('${course}', ${qCount})">
+                    <span class="material-icons-round">assignment</span>
+                    Test as Regents
+                    <span style="font-size: 0.8em; color: var(--accent-blue); font-weight: 600;">${qCount}-Question Mixed Exam</span>
+                </div>
+            ` : '';
+
+            grid.innerHTML = `
+                <div class="card" onclick="renderTopics('${subject}', '${course}')">
+                    <span class="material-icons-round">category</span>
+                    Topic-wise Test
+                    <span style="font-size: 0.8em; font-weight: normal; color: var(--text-muted);">Practice by specific chapters</span>
+                </div>
+                ${regentsCardHtml}
+            `;
+            goToScreen('menu-screen');
+        }
+
+        /**
+         * FUNCTION: renderTopics
+         * Populates the grid with all specific chapters/topics available for the selected course.
+         */
         function renderTopics(subject, course) {
+            currentView = "topics";
             currentSubject = subject;
             currentCourse = course;
             document.getElementById("menu-title").innerText = `${course} Topics`;
@@ -648,7 +713,7 @@
             let topics = nycCurriculum[subject].courses[course].topics;
             topics.forEach(topic => {
                 grid.innerHTML += `
-                    <div class="card" onclick="loadTests('${topic}')">
+                    <div class="card" onclick="fetchAndLoadTopic('${topic}')">
                         <span class="material-icons-round">article</span>
                         ${topic}
                     </div>
@@ -657,12 +722,29 @@
             goToScreen('menu-screen');
         }
 
-        async function loadTests(selectedTopic) {
+        /**
+         * FUNCTION: handlePracticeAnotherTopic
+         * Triggered from the review screen. Returns the user to the list of topics for the course they were just practicing.
+         */
+        function handlePracticeAnotherTopic() {
+            if (currentSubject && currentCourse && nycCurriculum[currentSubject] && nycCurriculum[currentSubject].courses[currentCourse]) {
+                renderTopics(currentSubject, currentCourse);
+            } else {
+                renderSubjects();
+            }
+        }
+
+        /**
+         * FUNCTION: fetchAndLoadTopic
+         * Makes an API call to the backend to retrieve all database questions matching the selected topic.
+         * If successful, routes the user to the module selection screen.
+         */
+        async function fetchAndLoadTopic(selectedTopic) {
             try {
                 let res = await fetch(`${API_BASE}/tests/topic/${encodeURIComponent(selectedTopic)}`);
                 currentTopicQuestions = await res.json();
                 
-                if (!currentTopicQuestions || currentTopicQuestions.length === 0) {
+                if (currentTopicQuestions.length === 0) {
                     alert(`No questions found in the database for '${selectedTopic}' yet!`);
                     return;
                 }
@@ -673,6 +755,33 @@
             }
         }
 
+        /**
+         * FUNCTION: startRegentsExam
+         * Makes an API call to fetch a randomized set of mixed questions for a full course to simulate a real exam.
+         */
+        async function startRegentsExam(course, limit = 24) {
+            try {
+                let res = await fetch(`${API_BASE}/tests/mixed?course=${encodeURIComponent(course)}&limit=${limit}`);
+                let questions = await res.json();
+                
+                if (!questions || questions.length === 0) {
+                    alert(`No exam questions found for ${course} yet!`);
+                    return;
+                }
+
+                currentTopic = `${course} Regents Exam`;
+                currentTestIndex = 'regents_mixed';
+                startCustomTest(questions, `${course} - Full Regents Exam (${questions.length} Qs)`);
+            } catch (e) {
+                alert("Could not load Regents exam from the backend.");
+            }
+        }
+
+        /**
+         * FUNCTION: renderTestModules
+         * Breaks a large topic array of questions into bite-sized "Modules" (e.g., 20 questions each).
+         * Displays the modules in a grid and checks if the user has a saved, incomplete attempt for any of them.
+         */
         function renderTestModules() {
             document.getElementById('test-screen-title').innerText = currentTopic;
             let testGrid = document.getElementById('test-grid');
@@ -687,9 +796,7 @@
 
                 let storageKey = `regents_run_saved_${currentTopic}_${i}`;
                 let hasSaved = localStorage.getItem(storageKey) !== null;
-                let badgeText = hasSaved 
-                    ? `<span style="color: var(--accent-blue); font-size: 0.85em; font-weight: 700;">Resume Saved Test (${qCount} Qs)</span>` 
-                    : `<span style="font-size: 0.8em; font-weight: normal; color: var(--text-muted);">${qCount} Questions</span>`;
+                let badgeText = hasSaved ? `<span style="color: var(--accent-blue); font-size: 0.85em; font-weight: 700;">Resume Saved Test (${qCount} Qs)</span>` : `<span style="font-size: 0.8em; font-weight: normal; color: var(--text-muted);">${qCount} Questions</span>`;
 
                 testGrid.innerHTML += `
                     <div class="card" onclick="startTest(${i})">
@@ -702,6 +809,11 @@
             goToScreen('test-screen');
         }
 
+        /**
+         * FUNCTION: startTest
+         * Initializes a standard topic-module test. Checks if there is a saved instance in localStorage.
+         * If there is, asks the user if they want to resume. Otherwise, slices the questions and starts fresh.
+         */
         function startTest(testIndex) {
             currentTestIndex = testIndex;
             let storageKey = `regents_run_saved_${currentTopic}_${testIndex}`;
@@ -728,8 +840,17 @@
 
             let start = testIndex * questionsPerTest;
             let end = start + questionsPerTest;
-            
-            currentTestQuestions = currentTopicQuestions.slice(start, end).map(q => {
+            let questionsSubset = currentTopicQuestions.slice(start, end);
+            startCustomTest(questionsSubset, `Module ${testIndex + 1}: ${currentTopic}`);
+        }
+
+        /**
+         * FUNCTION: startCustomTest
+         * Boots up the quiz interface with a provided array of questions.
+         * Shuffles the multiple choice options internally for every question before starting.
+         */
+        function startCustomTest(questions, customTitle = null) {
+            currentTestQuestions = questions.map(q => {
                 let mappedOptions = (q.options || []).map((opt, idx) => ({ text: opt, originalIndex: idx + 1 }));
                 shuffleArray(mappedOptions);
                 return { ...q, shuffledOptions: mappedOptions };
@@ -737,7 +858,7 @@
             
             userAnswers = {};
             currentQuestionIndex = 0;
-            currentQuizTitle = `Module ${testIndex + 1}: ${currentTopic}`;
+            currentQuizTitle = customTitle || currentTopic;
             document.getElementById('quiz-title').innerText = currentQuizTitle;
             
             goToScreen('quiz-screen');
@@ -746,8 +867,13 @@
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: saveAndExitTest
+         * Explicitly saves the current test progress to a persistent localStorage key (specific to the module/exam).
+         * Then clears the active volatile session and kicks the user back to the home menu.
+         */
         function saveAndExitTest() {
-            let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex}`;
+            let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex || 'custom'}`;
             let payload = {
                 questions: currentTestQuestions,
                 answers: userAnswers,
@@ -756,9 +882,14 @@
             localStorage.setItem(storageKey, JSON.stringify(payload));
             clearActiveSession();
             alert("Your test progress has been saved!");
-            renderTestModules();
+            renderSubjects();
         }
 
+        /**
+         * FUNCTION: renderNavBar
+         * Re-draws the SAT-style question bubble navigation bar at the top of the quiz screen.
+         * Highlights the currently active question and colors answered questions blue.
+         */
         function renderNavBar() {
             let navBar = document.getElementById('q-nav-bar');
             navBar.innerHTML = '';
@@ -787,6 +918,12 @@
             document.getElementById('progress-bar').style.width = progress + '%';
         }
 
+        /**
+         * FUNCTION: renderQuestion
+         * Builds the HTML for the currently active question in the quiz interface.
+         * Injects the context passage, images, question text, and the shuffled A/B/C/D option buttons.
+         * Finally, triggers MathJax to render any mathematical formulas.
+         */
         function renderQuestion() {
             const appDiv = document.getElementById('app');
             let q = currentTestQuestions[currentQuestionIndex];
@@ -796,7 +933,7 @@
             let formattedQ = formatQuestionContent(q.question);
 
             let optionsHtml = '<div class="options-grid">';
-            (q.shuffledOptions || []).forEach((optObj, optIndex) => {
+            q.shuffledOptions.forEach((optObj, optIndex) => {
                 let isSelected = (userAnswers[currentQuestionIndex] === optIndex) ? 'selected-option' : '';
                 let letter = optionLetters[optIndex] || '';
                 
@@ -808,12 +945,29 @@
             });
             optionsHtml += '</div>';
 
-            let imageHtml = (q.image_url && q.image_url !== "") 
-                ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px;">` 
-                : '';
+            let imageHtml = "";
+            if (q.image_urls && Array.isArray(q.image_urls) && q.image_urls.length > 0) {
+                // Handle new multiple images array
+                q.image_urls.forEach(url => {
+                    let finalUrl = url.startsWith("http") ? url : `${API_BASE}/${url}`;
+                    imageHtml += `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px; display: block;">`;
+                });
+            } else if (q.image_url && q.image_url !== "") {
+                // Fallback for older single-image subjects
+                let finalUrl = q.image_url.startsWith("http") ? q.image_url : `${API_BASE}/${q.image_url}`;
+                imageHtml = `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 24px; display: block;">`;
+            }
             
+            // Render the full context for the testing interface
+            let contextHtml = (q.context && q.context !== "") 
+                ? `<div style="margin-bottom: 20px; padding: 16px; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px; line-height: 1.6; font-size: 0.95em; color: #333;">
+                     ${q.context}
+                   </div>` 
+                : '';
+
             appDiv.innerHTML = `
                 <div class="question-card">
+                    ${contextHtml}
                     <div class="question-text">
                         ${currentQuestionIndex + 1}. ${formattedQ.text}
                         ${formattedQ.reference}
@@ -830,6 +984,11 @@
             triggerMathJax(appDiv);
         }
 
+        /**
+         * FUNCTION: selectAnswer
+         * Triggered when a user clicks an option (A/B/C/D). Records their selection to the `userAnswers` object.
+         * Updates UI selection states and auto-saves the session.
+         */
         function selectAnswer(btnElement, selectedOptIndex) {
             userAnswers[currentQuestionIndex] = selectedOptIndex;
             let allBtns = btnElement.parentElement.querySelectorAll('.option-btn');
@@ -839,41 +998,62 @@
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: navigateQuestion
+         * Moves the active question index forward or backward (+1 or -1) when Prev/Next buttons are clicked.
+         */
         function navigateQuestion(direction) {
             currentQuestionIndex += direction;
             renderQuestion();
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: jumpToQuestion
+         * Jumps directly to a specific question index when a user clicks a bubble in the top navigation bar.
+         */
         function jumpToQuestion(index) {
             currentQuestionIndex = index;
             renderQuestion();
             syncActiveSessionToStorage();
         }
 
+        /**
+         * FUNCTION: getCorrectOriginalIndex
+         * Crucial grading function. Takes the raw answer string from the database and maps it
+         * to the original 1-based index (1, 2, 3, 4) representing the correct option before shuffling occurred.
+         */
         function getCorrectOriginalIndex(q) {
             if (q.answer === undefined || q.answer === null) return -1;
             let ans = String(q.answer).trim();
 
-            let numMatch = ans.match(/\d+/);
+            // Case 1: Match EXACTLY a number or a number in parentheses (e.g., "1", "(2)")
+            let numMatch = ans.match(/^\(?(\d+)\)?$/);
             if (numMatch) {
-                let n = parseInt(numMatch[0]);
+                let n = parseInt(numMatch[1]);
                 if (n >= 1 && n <= (q.options || []).length) return n;
             }
 
+            // Case 2: Answer is a letter (e.g. "A", "B", "C", "D")
             let upper = ans.toUpperCase();
-            if (['A', 'B', 'C', 'D', 'E'].includes(upper)) {
-                return upper.charCodeAt(0) - 64;
+            if (['A', 'B', 'C', 'D', 'E'].includes(upper) && upper.length === 1) {
+                return upper.charCodeAt(0) - 64; 
             }
 
+            // Case 3: Answer is the actual option text string itself
             if (Array.isArray(q.options)) {
                 let idx = q.options.findIndex(opt => String(opt).trim() === ans);
-                if (idx !== -1) return idx + 1;
+                if (idx !== -1) return idx + 1; // 1-based
             }
 
             return -1;
         }
-
+/**
+         * FUNCTION: submitTest
+         * Fired when the "Finish Test" button is clicked. 
+         * Warns if questions are unanswered. If proceeding, it grades every question against the mapped original index,
+         * clears active storage, calculates the final score, and generates the Review Screen HTML with concise explanations.
+         */
         function submitTest() {
             let unanswered = 0;
             for(let i = 0; i < currentTestQuestions.length; i++) {
@@ -884,7 +1064,8 @@
                 if(!confirm(`You have ${unanswered} unanswered questions. Are you sure you want to submit and score your test?`)) return;
             }
 
-            let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex}`;
+            // Clear saved & active session storage upon completion
+            let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex || 'custom'}`;
             localStorage.removeItem(storageKey);
             clearActiveSession();
 
@@ -907,9 +1088,33 @@
 
                 let formattedQ = formatQuestionContent(q.question);
                 let cardClass = isCorrect ? 'review-card correct-card' : 'review-card';
-                let imageHtml = (q.image_url && q.image_url !== "") 
-                    ? `<img src="${q.image_url}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px;">` 
-                    : '';
+                
+                let imageHtml = "";
+                if (q.image_urls && Array.isArray(q.image_urls) && q.image_urls.length > 0) {
+                    q.image_urls.forEach(url => {
+                        let finalUrl = url.startsWith("http") ? url : `${API_BASE}/${url}`;
+                        imageHtml += `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px; display: block;">`;
+                    });
+                } else if (q.image_url && q.image_url !== "") {
+                    let finalUrl = q.image_url.startsWith("http") ? q.image_url : `${API_BASE}/${q.image_url}`;
+                    imageHtml = `<img src="${finalUrl}" style="max-width: 100%; border-radius: 8px; margin-bottom: 16px; display: block;">`;
+                }
+
+                // --- Targeted Explanation Logic ---
+                // If a precise explanation exists, prioritize it. Otherwise fallback to full context.
+                let reviewContextHtml = '';
+                if (q.explanation && q.explanation !== "") {
+                    reviewContextHtml = `
+                        <div class="explanation-container" style="background-color: #f8f9fa; padding: 16px; border-left: 4px solid #007bff; border-radius: 4px; margin-bottom: 20px; line-height: 1.6; font-size: 0.95em; color: #333;">
+                            <strong style="color: #0052FF; font-size: 1.05em;">Relevant Context & Explanation:</strong><br>
+                            ${q.explanation}
+                        </div>`;
+                } else if (q.context && q.context !== "") {
+                    reviewContextHtml = `
+                        <div class="context-container" style="margin-bottom: 20px; padding: 12px; background-color: #f8f9fa; border-left: 4px solid #94A3B8; border-radius: 4px; line-height: 1.5; font-size: 0.9em; color: #333;">
+                            ${q.context}
+                        </div>`;
+                }
 
                 let reviewOptionsHtml = '<div class="options-grid">';
                 (q.shuffledOptions || []).forEach((optObj, optIdx) => {
@@ -932,8 +1137,10 @@
                 });
                 reviewOptionsHtml += '</div>';
 
+                // --- Final Card Assembly ---
                 reviewHtml += `
                     <div class="${cardClass}">
+                        ${reviewContextHtml}
                         <div class="question-text">
                             ${index + 1}. ${formattedQ.text}
                             ${formattedQ.reference}
@@ -953,11 +1160,47 @@
             triggerMathJax(document.getElementById('review-content'));
         }
 
+        /**
+         * FUNCTION: triggerMathJax
+         * Instructs the MathJax rendering engine to re-scan the provided DOM element and render
+         * any newly injected LaTeX formatting into visual math equations.
+         */
         function triggerMathJax(element) {
             if (window.MathJax && window.MathJax.typesetPromise) {
                 window.MathJax.typesetPromise([element]).catch(err => console.error('MathJax error:', err.message));
+            } else if (window.MathJax && window.MathJax.Hub) {
+                window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, element]);
             }
         }
+
+        // --- Mobile/Browser Back Button Trapping (No Escape) ---
+        history.pushState({ view: 'root' }, '');
+        history.pushState({ view: 'internal' }, '');
+
+        window.addEventListener('popstate', function (event) {
+            // 1. Unconditionally push a new state forward so they can never exit
+            history.pushState({ view: 'internal' }, '');
+
+            const activeScreen = document.querySelector('.screen.active-screen').id;
+
+            // 2. Route backward logically within the app
+            if (activeScreen === 'quiz-screen') {
+                confirmExitToSubjects();
+            } else if (activeScreen === 'test-screen') {
+                renderTopics(currentSubject, currentCourse);
+            } else if (activeScreen === 'review-screen') {
+                renderSubjects();
+            } else if (activeScreen === 'menu-screen') {
+                navigateMenuBack();
+            }
+        });
+
+        // Intercept goToScreen to push state every time they navigate forward
+        const originalGoToScreen = goToScreen;
+        goToScreen = function(screenId) {
+            history.pushState({ view: 'internal' }, '');
+            originalGoToScreen(screenId);
+        };
     </script>
 </body>
 </html>
