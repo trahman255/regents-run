@@ -931,7 +931,7 @@
             document.getElementById('q-counter').innerText = `Question ${currentQuestionIndex + 1} of ${currentTestQuestions.length}`;
 
            
-            console.log("RAW QUESTION:", q.question);
+            console.log("RAW QUESTION:", q.question , JSON.stringify(q.question));
             let formattedQ = formatQuestionContent(q.question);
 
             let optionsHtml = '<div class="options-grid">';
