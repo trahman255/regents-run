@@ -1,386 +1,546 @@
 [
   {
     "course": "Algebra I",
-    "topic": "Introduction to Exponential Functions",
+    "topic": "Introduction to Quadratic Functions",
     "context": null,
-    "question": "The monarch butterfly population doubled every day during the month of June. Which kind of function best describes this situation?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "A parabola is graphed on the set of axes below.<br><br><img src='images/questions_image/algebrai/alg1_jan26_q1.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>What are the equation of the axis of symmetry and the coordinates of the vertex of this parabola?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "linear",
-      "quadratic",
-      "exponential growth",
-      "exponential decay"
+      "$x=3$ and $(3,-4)$",
+      "$y=3$ and $(3,-4)$",
+      "$x=-4$ and $(-4,3)$",
+      "$y=-4$ and $(-4,3)$"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Vertex and Axis of Symmetry<br><br><strong>Why:</strong> Observing the graph, the lowest point (vertex) of the parabola is located at the coordinates $(3, -4)$. The axis of symmetry is the vertical line that passes through the vertex, which has the equation $x = 3$.[cite: 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "The product of $\\sqrt{25}$ and $\\sqrt{2}$ will result in<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "an irrational number",
+      "a rational number",
+      "a natural number",
+      "an integer"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Rational and Irrational Numbers<br><br><strong>Why:</strong> The square root of 25 simplifies to 5, which is a rational number. The square root of 2 is an irrational number. The product of a non-zero rational number and an irrational number is always an irrational number ($5\\sqrt{2}$).[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "When $f(x)=|4x+2|$ and $g(x)=3x+5$ are graphed on the same set of axes, for which value of $x$ is $f(x)=g(x)$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "14"
     ],
     "answer": "3",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Identifying Exponential Growth<br><br><strong>Why:</strong> Doubling every day means the population is repeatedly multiplied by a constant factor of 2. Repeated multiplication by a factor greater than 1 characterizes exponential growth."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Linear Equations, Inequalities, and Systems",
-    "context": null,
-    "question": "The solution to $3x-4=2.6x+8.2$ is<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "30.5",
-      "10.5",
-      "21.5",
-      "3.05"
-    ],
-    "answer": "1",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Solving Linear Equations<br><br><strong>Why:</strong> Isolate the variable $x$. Subtract $2.6x$ from both sides: $0.4x - 4 = 8.2$. Add 4 to both sides: $0.4x = 12.2$. Divide by $0.4$: $x = 30.5$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Linear Equations, Inequalities, and Systems",
-    "context": null,
-    "question": "Given: $2x+y=6$<br>$x=4y+12$<br><br>When solving by substitution, which equation could be a step in solving this system?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "$2(4y+12)+y=6$",
-      "$2(-4y-12)+y=6$",
-      "$x=4(-6+2x)+12$",
-      "$x=4(6+2x)+12$"
-    ],
-    "answer": "1",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Solving Systems by Substitution<br><br><strong>Why:</strong> Since the second equation is already solved for $x$ ($x = 4y + 12$), substitute the expression $(4y + 12)$ for $x$ in the first equation ($2x + y = 6$). This yields $2(4y + 12) + y = 6$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Linear Equations, Inequalities, and Systems",
-    "context": null,
-    "question": "Which inequality represents 80 decreased by a number is less than 100?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "$80-n>100$",
-      "$80-n<100$",
-      "$n-80<100$",
-      "$n-80>100$"
-    ],
-    "answer": "2",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Translating English to Algebraic Inequalities<br><br><strong>Why:</strong> \"80 decreased by a number\" translates to $80 - n$. The phrase \"is less than 100\" translates to $< 100$. Combining these gives $80 - n < 100$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Introduction to Exponential Functions",
-    "context": null,
-    "question": "Dave bought a new car for \\$29,500. As soon as he drove it off the car lot, it began to depreciate in value. He was told that the car's value would continue to decline at an average yearly rate of 17.5% for the first 5 years. The function $V(t)$ represents the value of Dave's car in $t$ years, where $t \\le 5$. Which function correctly models this situation?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "$V(t)=29,500(1+1.75)^{t}$",
-      "$V(t)=29,500(1-1.75)^{t}$",
-      "$V(t)=29,500(1+0.175)^{t}$",
-      "$V(t)=29,500(1-0.175)^{t}$"
-    ],
-    "answer": "4",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Exponential Decay<br><br><strong>Why:</strong> The initial value is $29,500$. The decay rate is $17.5\\%$, which is $0.175$ as a decimal. The standard formula for exponential decay is $V(t) = a(1 - r)^t$. Substituting the given values yields $V(t) = 29,500(1 - 0.175)^t$."
+    "explanation": "<strong>Concept:</strong> Solving Absolute Value Equations<br><br><strong>Why:</strong> Substitute each $x$-value into both functions to find where they yield the same result. For $x=3$: $f(3) = |4(3)+2| = |14| = 14$, and $g(3) = 3(3)+5 = 9+5 = 14$. Since $f(3) = g(3)$, the correct value is 3.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Quadratic Equations",
     "context": null,
-    "question": "Which expression is equivalent to $400-x^{2}$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "The expression $x^{2}-26x-120$ is equivalent to<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$(200-x)(200+x)$",
-      "$(x-200)(x+200)$",
-      "$(20-x)(20+x)$",
-      "$(x-20)(x+20)$"
+      "$(x+4)(x-30)$",
+      "$(x-4)(x+30)$",
+      "$(x-20)(x+6)$",
+      "$(x+20)(x-6)$"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Factoring Quadratic Trinomials<br><br><strong>Why:</strong> We need to find two numbers that multiply to the constant term ($-120$) and add to the linear coefficient ($-26$). The numbers $+4$ and $-30$ satisfy these conditions because $4 \\cdot -30 = -120$ and $4 + (-30) = -26$. Therefore, the factored form is $(x+4)(x-30)$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "The expression $3-2\\sqrt{5}+6\\sqrt{5}$ is equivalent to<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$7\\sqrt{5}$",
+      "$7\\sqrt{10}$",
+      "$3+4\\sqrt{5}$",
+      "$3+4\\sqrt{10}$"
     ],
     "answer": "3",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Difference of Two Squares<br><br><strong>Why:</strong> The expression $400 - x^2$ can be rewritten as a difference of perfect squares: $20^2 - x^2$. Using the factoring pattern $a^2 - b^2 = (a - b)(a + b)$, it factors into $(20 - x)(20 + x)$."
+    "explanation": "<strong>Concept:</strong> Simplifying Radical Expressions<br><br><strong>Why:</strong> Combine the like radical terms: $-2\\sqrt{5} + 6\\sqrt{5} = 4\\sqrt{5}$. Adding the constant term gives the final simplified expression: $3 + 4\\sqrt{5}$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "Students were asked to write a polynomial given the following conditions:<br>• the degree of the expression is 3<br>• the leading coefficient is 2<br>• the constant term is -6<br><br>Which expression satisfies all three conditions?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$4x-6+3x^{2}$",
+      "$3x^{2}-6x+4$",
+      "$4-6x+2x^{3}$",
+      "$4x^{2}+2x^{3}-6$"
+    ],
+    "answer": "4",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Polynomial Characteristics<br><br><strong>Why:</strong> A degree of 3 means the highest exponent on the variable is 3. A leading coefficient of 2 means the term with the highest degree must be $2x^3$. A constant term of -6 means the term without a variable is $-6$. Expression 4, $4x^2 + 2x^3 - 6$, has a highest degree of 3, its $x^3$ term has a coefficient of 2, and its constant is $-6$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "Which graph below represents a function?<br><br><img src='images/questions_image/algebrai/alg1_jan26_q7.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Vertical Line Test<br><br><strong>Why:</strong> A graph represents a function if it passes the vertical line test, meaning no vertical line intersects the graph at more than one point. Graph (1) passes the vertical line test. Graph (2) fails because the closed circle of the bottom step and the closed circle of the middle step share the same $x$-coordinate. Graphs (3) and (4) also fail the vertical line test.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Introduction to Exponential Functions",
+    "context": null,
+    "question": "The following function models the value of a diamond ring, in dollars, $t$ years after it is purchased:<br><br>$$v(t)=500(1.08)^{t}$$<br><br>What was the original price of the ring, in dollars?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "\\$108",
+      "\\$460",
+      "\\$500",
+      "\\$540"
+    ],
+    "answer": "3",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Exponential Functions<br><br><strong>Why:</strong> In the exponential growth model $v(t) = a(b)^t$, the coefficient '$a$' represents the initial value (when $t=0$). Substituting $t=0$ gives $v(0) = 500(1.08)^0 = 500(1) = 500$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "The formula for the surface area of a cylinder can be expressed as $S=2\\pi r^{2}+2\\pi rh$, where $r$ is the radius and $h$ is the height of the cylinder. What is the height, $h$, expressed in terms of $S$, $\\pi$, and $r$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$h=\\frac{S-2\\pi r^{2}}{2\\pi r}$",
+      "$h=S-r$",
+      "$h=\\frac{2\\pi r^{2}-S}{2\\pi r}$",
+      "$h=r-S$"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Literal Equations<br><br><strong>Why:</strong> Isolate the term containing $h$ by subtracting $2\\pi r^2$ from both sides: $S - 2\\pi r^2 = 2\\pi rh$. Then, divide both sides by $2\\pi r$ to solve for $h$: $h = \\frac{S - 2\\pi r^2}{2\\pi r}$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "When solving the following system of equations algebraically, Mason used the substitution method.<br><br>$3x-y=10$<br>$2x+5y=1$<br><br>Which equation could he have used?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$2(3x-10)+5x=1$",
+      "$2(-3x+10)+5x=1$",
+      "$2x+5(3x-10)=1$",
+      "$2x+5(-3x+10)=1$"
+    ],
+    "answer": "3",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Solving Systems by Substitution<br><br><strong>Why:</strong> Solve the first equation for $y$: $3x - y = 10 \\implies 3x - 10 = y$. Substitute $(3x - 10)$ for $y$ in the second equation: $2x + 5(3x - 10) = 1$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "Which graph represents the solution to the inequality $4+3x>9-7x$?<br><br><img src='images/questions_image/algebrai/alg1_jan26_q11.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)"
+    ],
+    "answer": "3",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Solving Linear Inequalities<br><br><strong>Why:</strong> Add $7x$ to both sides: $4 + 10x > 9$. Subtract 4 from both sides: $10x > 5$. Divide by 10: $x > 0.5$ (or $\\frac{1}{2}$). On a number line, this is represented by an open circle at $\\frac{1}{2}$ with an arrow extending to the right, which matches graph (3).[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "When solving the equation $3(2x+5)-8=7x+10$, the first step could be $3(2x+5)=7x+18$. Which property justifies this step?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "addition property of equality",
+      "commutative property of addition",
+      "multiplication property of equality",
+      "distributive property of multiplication over addition"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Properties of Equality<br><br><strong>Why:</strong> The student added 8 to both sides of the equation to eliminate the $-8$ on the left side, resulting in $10 + 8 = 18$ on the right. This directly applies the addition property of equality.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Introduction to Exponential Functions",
+    "context": null,
+    "question": "Which table of values best models an exponential decay function?<br><br><img src='images/questions_image/algebrai/alg1_jan26_q13.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)"
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Exponential Decay Models<br><br><strong>Why:</strong> Exponential decay requires successive $y$-values to decrease by a constant multiplier between 0 and 1. In table (2), each $f(m)$ value is multiplied by 0.9 to get the next value ($200 \\cdot 0.9 = 180$, $180 \\cdot 0.9 = 162$, etc.).[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "If $f(x)=\\sqrt{x+1}+5$ then what is the value of $f(3)$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "9",
+      "7",
+      "3",
+      "10"
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Evaluating Functions<br><br><strong>Why:</strong> Substitute $x=3$ into the function: $f(3) = \\sqrt{3+1} + 5 \\implies f(3) = \\sqrt{4} + 5 \\implies f(3) = 2 + 5 = 7$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Introduction to Quadratic Functions",
+    "context": null,
+    "question": "Isabella wants to shift the graph of the function $f(x)=(x+5)^{2}-2$ left 3 units. Which function represents the shifted graph?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$g(x)=(x+2)^{2}-2$",
+      "$g(x)=(x+8)^{2}-2$",
+      "$g(x)=(x+5)^{2}-5$",
+      "$g(x)=(x+5)^{2}+1$"
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Function Transformations<br><br><strong>Why:</strong> A horizontal shift to the left by $h$ units involves adding $h$ to the inner $x$ variable. Therefore, $g(x) = f(x+3) = ((x+3)+5)^2 - 2 \\implies (x+8)^2 - 2$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Quadratic Equations",
+    "context": null,
+    "question": "What are the zeros of $f(x)=x(x^{2}-36)$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "0, only",
+      "6, only",
+      "6 and -6, only",
+      "0, 6, and -6"
+    ],
+    "answer": "4",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Zero Product Property<br><br><strong>Why:</strong> Set the function equal to zero: $x(x^2 - 36) = 0$. Apply the zero product property to get $x = 0$ and $x^2 - 36 = 0$. Solving the second equation gives $x^2 = 36 \\implies x = \\pm 6$. The zeros are 0, 6, and -6.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Quadratic Equations",
+    "context": null,
+    "question": "The point $(x,-6)$ lies on the graph of a parabola whose equation is $y=-x^{2}-x+6$. The value of $x$ can be<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "-3 or 2",
+      "-4 or 3",
+      "3, only",
+      "-4, only"
+    ],
+    "answer": "2",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Evaluating Functions and Solving Quadratics<br><br><strong>Why:</strong> Substitute $y = -6$ into the equation: $-6 = -x^2 - x + 6$. Add $x^2 + x - 6$ to both sides to set to zero: $x^2 + x - 12 = 0$. Factor the quadratic: $(x+4)(x-3) = 0$. The solutions are $x = -4$ and $x = 3$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Two-Variable Statistics",
     "context": null,
-    "question": "The scatter plot below shows the relationship between the number of internet-connected devices and the number of members in a household.<br><br><img src='images/questions_image/algebrai/alg1_aug26_q7.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>For a household that has six members, what would be the best estimate for the number of internet-connected devices?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "The two-way frequency table below is a summary of concession stand sales for a football game.<br><br><table border='1' style='border-collapse: collapse; text-align: center; margin: 0 auto;'><tr><th>Concession Stand Sales</th><th>Soda</th><th>Water</th><th>Coffee</th><th>Total</th></tr><tr><th>Hot Dogs</th><td>50</td><td>62</td><td>46</td><td>158</td></tr><tr><th>Pizza</th><td>120</td><td>58</td><td>4</td><td>182</td></tr><tr><th>No Food</th><td>30</td><td>20</td><td>10</td><td>60</td></tr><tr><th>Total</th><td>200</td><td>140</td><td>60</td><td>400</td></tr></table><br><br>Of the people making a purchase at the concession stand, what is the relative frequency of them buying pizza and a water?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "6",
-      "10",
-      "14",
-      "18"
-    ],
-    "answer": "2",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Line of Best Fit / Interpolation<br><br><strong>Why:</strong> By drawing a trend line (line of best fit) through the center of the plotted data points, the expected y-value corresponding to an x-value of $6$ falls halfway between the nearby clusters at $x=5$ (ranging $6-13$) and $x=7$ (ranging $7-13$). The center of the trend at $x=6$ is approximately 10."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Introduction to Quadratic Functions",
-    "context": null,
-    "question": "What is the equation of the axis of symmetry for $y=-x^{2}+6x$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "$y=9$",
-      "$x=9$",
-      "$y=3$",
-      "$x=3$"
+      "0.58",
+      "0.35",
+      "0.455",
+      "0.145"
     ],
     "answer": "4",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Axis of Symmetry of a Parabola<br><br><strong>Why:</strong> The axis of symmetry formula is $x = \\frac{-b}{2a}$. For the quadratic function $y = -x^2 + 6x$, the coefficients are $a = -1$ and $b = 6$. Substituting these values gives $x = \\frac{-6}{2(-1)} \\implies x = \\frac{-6}{-2} \\implies x = 3$."
+    "explanation": "<strong>Concept:</strong> Relative Frequency<br><br><strong>Why:</strong> The total number of people making a purchase is the grand total, 400. The number of people who bought both pizza and water is 58. The relative frequency is $\\frac{58}{400} = 0.145$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Linear Equations, Inequalities, and Systems",
     "context": null,
-    "question": "The first step in solving a quadratic equation is shown below.<br><br>$x^{2}-2x+3=-12$<br>$x^{2}-2x+15=0$<br><br>Which property was used?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "When Theodore was driving in Canada, his speed was 104 kilometers per hour. Theodore was asked to convert his metric speed to a different rate, using the following conversion:<br><br>$$\\frac{104 \\text{ km}}{1 \\text{ hr}} \\cdot \\frac{1 \\text{ hr}}{60 \\text{ min}} \\cdot \\frac{1 \\text{ min}}{60 \\text{ sec}} \\cdot \\frac{0.6214 \\text{ mi}}{1 \\text{ km}} \\cdot \\frac{5280 \\text{ ft}}{1 \\text{ mi}}$$<br><br>Assuming he did all the work correctly, what would the units be for Theodore's rate?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "additive identity",
-      "addition property of equality",
-      "commutative property of addition",
-      "associative property of addition"
-    ],
-    "answer": "2",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Properties of Equality<br><br><strong>Why:</strong> The number 12 was added to both sides of the equation to isolate zero on the right side. Performing the exact same addition operation on both sides of an equation demonstrates the addition property of equality."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Functions",
-    "context": null,
-    "question": "A fourth-degree polynomial with a leading coefficient of eight and a constant term of twelve written in standard form is<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "$12+5x^{2}+8x^{4}$",
-      "$8x^{4}+5x^{2}+12$",
-      "$12+6x+5x^{2}+8x^{3}$",
-      "$8x^{3}+5x^{2}+6x+12$"
-    ],
-    "answer": "2",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Standard Form of Polynomials<br><br><strong>Why:</strong> Standard form requires terms to be written in descending order of their exponents (degrees). A fourth-degree polynomial must start with $x^4$. A leading coefficient of eight makes the very first term $8x^4$. A constant term of 12 makes the very last term $+12$. This matches the expression $8x^4 + 5x^2 + 12$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Functions",
-    "context": null,
-    "question": "If $g(x)=x^{2}-x$ then what is the value of $g(-4)$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "-20",
-      "-12",
-      "12",
-      "20"
-    ],
-    "answer": "4",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Evaluating Functions<br><br><strong>Why:</strong> Substitute $x = -4$ into the function: $g(-4) = (-4)^2 - (-4) \\implies g(-4) = 16 + 4 \\implies g(-4) = 20$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Linear Equations, Inequalities, and Systems",
-    "context": null,
-    "question": "A cookie recipe requires $1\\frac{3}{4}$ cups of flour to make 25 cookies. Using the same recipe, how many ounces of flour are needed to make 75 cookies?<br><br>[1 cup = 8 ounces]<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "10.72",
-      "14",
-      "32.16",
-      "42"
-    ],
-    "answer": "4",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Proportions and Unit Conversions<br><br><strong>Why:</strong> Making 75 cookies requires exactly 3 times the amount of ingredients needed for 25 cookies ($75 \\div 25 = 3$). Multiply the cups needed by 3: $1.75 \\cdot 3 = 5.25$ cups. Then convert the cups to ounces: $5.25 \\text{ cups} \\cdot 8 \\text{ ounces/cup} = 42$ ounces."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Quadratic Equations",
-    "context": null,
-    "question": "The product of $3\\sqrt{7}$ and $\\sqrt{7}$ is<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "rational, because the product is 21",
-      "rational, because the product of two irrational numbers is always rational",
-      "irrational, because the product of two irrational numbers is always irrational",
-      "irrational, because $\\sqrt{7}$ is a nonrepeating, nonterminating decimal"
+      "feet per second",
+      "feet per minute",
+      "seconds per foot",
+      "minutes per foot"
     ],
     "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Rational and Irrational Numbers<br><br><strong>Why:</strong> Multiply the radical terms together: $3\\sqrt{7} \\cdot \\sqrt{7} = 3 \\cdot \\sqrt{49} = 3 \\cdot 7 = 21$. Since $21$ can be expressed as a simple fraction ($\\frac{21}{1}$), it is a rational number."
+    "explanation": "<strong>Concept:</strong> Dimensional Analysis<br><br><strong>Why:</strong> Cancel the units that appear in both the numerator and the denominator across the fractions: 'km', 'hr', 'min', and 'mi' all cancel out. The only units remaining are 'ft' in the numerator and 'sec' in the denominator, leaving feet per second.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Functions",
     "context": null,
-    "question": "Three functions $f(x)$, $g(x)$, and $h(x)$ are shown below.<br><br>$$f(x)=3(2)^{x}$$<br><br><img src='images/questions_image/algebrai/alg1_aug26_q14.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>Which function or functions will always increase over the interval $1 \\le x \\le 4$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Which expression is equivalent to $(-2x^{2})^{3}$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$g(x)$, only",
-      "$h(x)$, only",
-      "$f(x)$ and $g(x)$",
-      "$f(x)$ and $h(x)$"
+      "$-2x^{5}$",
+      "$-2x^{6}$",
+      "$-8x^{5}$",
+      "$-8x^{6}$"
+    ],
+    "answer": "4",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Power of a Product Rule<br><br><strong>Why:</strong> Apply the exponent 3 to both the coefficient and the variable inside the parentheses: $(-2)^3 \\cdot (x^2)^3 \\implies -8 \\cdot x^{2 \\cdot 3} \\implies -8x^6$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "The table below shows the amount of a radioactive substance that remained for selected years.<br><br><table border='1' style='border-collapse: collapse; text-align: center; margin: 0 auto;'><tr><th>Year</th><td>2000</td><td>2001</td><td>2005</td><td>2010</td><td>2014</td><td>2017</td><td>2019</td></tr><tr><th>Amount Remaining (grams)</th><td>750</td><td>450</td><td>219</td><td>85</td><td>25</td><td>12</td><td>8</td></tr></table><br><br>To the nearest tenth, the average rate of change, in grams per year, from 2000 to 2014 is<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "39.1",
+      "51.8",
+      "-39.1",
+      "-51.8"
+    ],
+    "answer": "4",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Average Rate of Change<br><br><strong>Why:</strong> The formula is $\\frac{y_2 - y_1}{x_2 - x_1}$. Using the data points $(2000, 750)$ and $(2014, 25)$: $\\frac{25 - 750}{2014 - 2000} = \\frac{-725}{14} \\approx -51.78$. Rounded to the nearest tenth, this is $-51.8$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "When $2x^{2}-3x+4$ is subtracted from $x^{2}+2x-5$ the result is<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$x^{2}-5x+9$",
+      "$x^{2}-x+1$",
+      "$-x^{2}+5x-9$",
+      "$-x^{2}-x-1$"
     ],
     "answer": "3",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Increasing and Decreasing Intervals<br><br><strong>Why:</strong> Evaluated over the interval $1 \\le x \\le 4$: The function $f(x) = 3(2)^x$ is an exponential growth function, meaning it strictly increases for all real numbers. Based on the graph of $g(x)$, the function turns around at $x = 0$ and then increases for all $x > 0$, so it strictly increases on $[1, 4]$. The table for $h(x)$ shows it decreasing from $x = 1$ to $x = 2$ ($4 \\to 3$), so it does not strictly increase. Therefore, only $f(x)$ and $g(x)$ meet the criteria."
+    "explanation": "<strong>Concept:</strong> Subtracting Polynomials<br><br><strong>Why:</strong> The wording \"subtracted from\" means the order is: $(x^2 + 2x - 5) - (2x^2 - 3x + 4)$. Distribute the negative sign: $x^2 + 2x - 5 - 2x^2 + 3x - 4$. Combine like terms: $(x^2 - 2x^2) + (2x + 3x) + (-5 - 4) = -x^2 + 5x - 9$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Quadratic Equations",
     "context": null,
-    "question": "The zeros of $f(x)=x(x+2)(x-4)$ are<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Which equation has the same solution as $x^{2}-6x=24$?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$\\{2,-4\\}$",
-      "$\\{-2,4\\}$",
-      "$\\{0,2,-4\\}$",
-      "$\\{0,-2,4\\}$"
+      "$(x-3)^{2}=24$",
+      "$(x-6)^{2}=24$",
+      "$(x-3)^{2}=33$",
+      "$(x-6)^{2}=60$"
     ],
-    "answer": "4",
+    "answer": "3",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Zero Product Property<br><br><strong>Why:</strong> Set the function equal to zero to find the roots: $x(x+2)(x-4) = 0$. Using the zero product property, set each distinct factor equal to zero: $x = 0$, $x+2 = 0 \\implies x = -2$, and $x-4 = 0 \\implies x = 4$. The zeros are $0, -2,$ and $4$."
+    "explanation": "<strong>Concept:</strong> Completing the Square<br><br><strong>Why:</strong> Add the square of half the linear coefficient to both sides. Half of $-6$ is $-3$, and $(-3)^2 = 9$. Add 9 to both sides: $x^2 - 6x + 9 = 24 + 9$. Factor the left side and simplify the right: $(x-3)^2 = 33$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Introduction to Exponential Functions",
     "context": null,
-    "question": "Three expressions are shown below.<br><br>I. $2^{x+6}$<br>II. $4^{x+3}$<br>III. $16 \\cdot 2^{x+2}$<br><br>Which of these expressions are equivalent for all values of $x$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "In a sequence, the first term is 2 and the common ratio is -3. The fourth term in this sequence is<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "I and II, only",
-      "I and III, only",
-      "II and III, only",
-      "I, II, and III"
+      "-162",
+      "-11",
+      "24",
+      "-54"
     ],
     "answer": "4",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Exponent Rules<br><br><strong>Why:</strong> Simplify each expression to a base of 2 to verify equivalence. Expression I is already fully simplified as $2^{x+6}$. Expression II: $4^{x+3} = (2^2)^{x+3} = 2^{2x+6}$, which is not equivalent. Expression III: $16 \\cdot 2^{x+2} = 2^4 \\cdot 2^{x+2} = 2^{x+2+4} = 2^{x+6}$. Therefore, expressions I and III are the only equivalent forms."
+    "explanation": "<strong>Concept:</strong> Geometric Sequences<br><br><strong>Why:</strong> The $n$-th term of a geometric sequence is given by $a_n = a_1(r)^{n-1}$. Substituting $a_1 = 2$, $r = -3$, and $n = 4$: $a_4 = 2(-3)^{4-1} = 2(-3)^3 = 2(-27) = -54$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
-    "topic": "Quadratic Equations",
+    "topic": "Linear Equations, Inequalities, and Systems",
     "context": null,
-    "question": "When using the method of completing the square to solve $x^{2}+4x-11=0$ which equation is a correct step in the process?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Solve the equation for $x$:<br><br>$14x=3(1+2x)-4x$<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$(x+2)^{2}=-7$",
-      "$(x-2)^{2}=-7$",
-      "$(x+2)^{2}=15$",
-      "$(x-2)^{2}=15$"
+      "$x = \\frac{1}{4}$",
+      "$x = 3$",
+      "$x = \\frac{1}{2}$",
+      "$x = 4$"
     ],
-    "answer": "3",
+    "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Completing the Square<br><br><strong>Why:</strong> Move the constant to the right side of the equation: $x^2 + 4x = 11$. Add the square of half the $b$-coefficient $(\\frac{4}{2})^2 = 4$ to both sides: $x^2 + 4x + 4 = 11 + 4$. Finally, factor the perfect square trinomial on the left: $(x+2)^2 = 15$."
+    "explanation": "<strong>Concept:</strong> Solving Linear Equations<br><br><strong>Why:</strong> Distribute the 3: $14x = 3 + 6x - 4x$. Combine like terms on the right side: $14x = 3 + 2x$. Subtract $2x$ from both sides: $12x = 3$. Divide by 12: $x = \\frac{3}{12} = \\frac{1}{4}$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Functions",
+    "context": null,
+    "question": "Determine the product of $(2x+3)$ and $(-6x^{2}+5x-1)$. Express the product in standard form.<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$-12x^{3}-8x^{2}+13x-3$",
+      "$-12x^{3}+28x^{2}+13x-3$",
+      "$-12x^{3}-8x^{2}-13x-3$",
+      "$-12x^{3}+28x^{2}-13x-3$"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Multiplying Polynomials<br><br><strong>Why:</strong> Distribute both terms from the binomial into the trinomial: $2x(-6x^2 + 5x - 1) + 3(-6x^2 + 5x - 1) \\implies -12x^3 + 10x^2 - 2x - 18x^2 + 15x - 3$. Combine like terms: $-12x^3 - 8x^2 + 13x - 3$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "One-Variable Statistics",
     "context": null,
-    "question": "George and Henry are in a bowling league. Their top scores from each of the last nine weeks are listed below:<br><br>George: 198, 101, 167, 202, 185, 103, 192, 200, 198<br>Henry: 210, 126, 194, 200, 172, 98, 215, 114, 202<br><br>Which statement correctly describes the relationship between George and Henry's bowling scores?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "A student's test scores for the semester are listed below:<br><br>$83, 87, 90, 94, 94, 93, 95, 70, 72, 83, 85, 88, 98$<br><br>What is the median of the given data set?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "The standard deviation for George's bowling scores is less than Henry's, but the mean for George's bowling scores is greater than Henry's.",
-      "The standard deviation for George's bowling scores is greater than Henry's, but the mean for George's bowling scores is less than Henry's.",
-      "The standard deviation and mean for George's bowling scores are both less than Henry's.",
-      "The standard deviation and mean for George's bowling scores are both greater than Henry's."
+      "88",
+      "87",
+      "90",
+      "85"
     ],
     "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Measures of Center and Spread (Mean and Standard Deviation)<br><br><strong>Why:</strong> First, calculate the mean for George: $1546 \\div 9 \\approx 171.78$. Then, calculate the mean for Henry: $1531 \\div 9 \\approx 170.11$. George's mean is strictly greater. Looking at the spread of the data, Henry's scores ($98$ to $215$) have a wider range and deviate further from the mean than George's scores ($101$ to $202$), making George's standard deviation less than Henry's."
+    "explanation": "<strong>Concept:</strong> Five-Number Summary<br><br><strong>Why:</strong> First, order the 13 data points from least to greatest: $70, 72, 83, 83, 85, 87, 88, 90, 93, 94, 94, 95, 98$. The median is the middle value in the sorted list. Since there are 13 values, the 7th value is the median, which is 88.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
-    "topic": "Functions",
+    "topic": "Linear Equations, Inequalities, and Systems",
     "context": null,
-    "question": "The mapping shown below demonstrates a relation.<br><br><img src='images/questions_image/algebrai/alg1_aug26_q19.png' style='max-width: 100%; border-radius: 8px; display: block; margin: 0 auto;'><br><br>Which statement about this relation is true?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Write an equation, in slope-intercept form, of a line that passes through the point $(6, 3)$ and has a slope of $\\frac{2}{3}$.<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "It is a function because each element of the domain maps onto only one element of the range.",
-      "It is a function because each element of the range maps onto only one element of the domain.",
-      "It is not a function because each element of the domain maps onto only one element of the range.",
-      "It is not a function because each element of the range maps onto only one element of the domain."
+      "$y = \\frac{2}{3}x - 1$",
+      "$y = \\frac{2}{3}x + 1$",
+      "$y = \\frac{2}{3}x - 7$",
+      "$y = \\frac{2}{3}x + 7$"
     ],
     "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Definition of a Function<br><br><strong>Why:</strong> A mathematical relation is defined as a function if and only if every input (domain element) maps to exactly one output (range element). Since A, B, C, and D each have exactly one arrow originating from them, the relation is a function."
+    "explanation": "<strong>Concept:</strong> Point-Slope to Slope-Intercept Form<br><br><strong>Why:</strong> Use point-slope form $y - y_1 = m(x - x_1)$. Substitute the given values: $y - 3 = \\frac{2}{3}(x - 6)$. Distribute the slope: $y - 3 = \\frac{2}{3}x - 4$. Add 3 to both sides to convert to slope-intercept form: $y = \\frac{2}{3}x - 1$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
-    "topic": "Functions",
+    "topic": "Linear Equations, Inequalities, and Systems",
     "context": null,
-    "question": "The function $f(x)=|x+6|-5$ is shifted to the right 2 units to make the function $g(x)$. Which function represents $g(x)$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Abby has \\$20 to spend at a community festival. She uses \\$8.50 to purchase food coupons for popcorn, a hot dog, and a soda. She can buy individual ride tickets for \\$2.25 each. Determine algebraically the maximum number of ride tickets Abby can buy.<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$g(x)=|x+4|-5$",
-      "$g(x)=|x+8|-5$",
-      "$g(x)=|x+6|-3$",
-      "$g(x)=|x+6|-7$"
+      "5",
+      "6",
+      "4",
+      "3"
     ],
     "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Horizontal Translations<br><br><strong>Why:</strong> Shifting a function horizontally to the right by $h$ units requires subtracting $h$ from the inner input variable $x$. Therefore, $g(x) = f(x - 2) = |(x - 2) + 6| - 5 \\implies |x + 4| - 5$."
-  },
-  {
-    "course": "Algebra I",
-    "topic": "Functions",
-    "context": null,
-    "question": "The table below shows the average cost for one dozen large eggs over a period of years.<br><br><table border='1' style='border-collapse: collapse; text-align: center; margin: 0 auto;'><tr><th>Year</th><td>2009</td><td>2010</td><td>2011</td><td>2012</td><td>2013</td><td>2014</td><td>2015</td><td>2016</td></tr><tr><th>Cost ($)</th><td>1.34</td><td>2.65</td><td>2.65</td><td>2.68</td><td>2.68</td><td>2.00</td><td>2.11</td><td>2.08</td></tr></table><br><br>What is the average rate of change of the cost, in dollars per year, from 2009 to 2016 rounded to the nearest hundredth?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
-    "options": [
-      "-0.11",
-      "-0.10",
-      "0.10",
-      "0.11"
-    ],
-    "answer": "4",
-    "image_url": null,
-    "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Average Rate of Change<br><br><strong>Why:</strong> The formula for the average rate of change between two points is $\\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$. Using the corresponding points $(2009, 1.34)$ and $(2016, 2.08)$: $\\frac{2.08 - 1.34}{2016 - 2009} = \\frac{0.74}{7} \\approx 0.1057$. Rounded to the nearest hundredth, the rate is $0.11$."
+    "explanation": "<strong>Concept:</strong> Modeling with Linear Inequalities<br><br><strong>Why:</strong> Let $x$ represent the number of ride tickets. The inequality modeling her spending is $2.25x + 8.50 \\le 20$. Subtract 8.50 from both sides: $2.25x \\le 11.50$. Divide by 2.25: $x \\le 5.111...$ Since she can only buy whole tickets, the maximum number she can purchase is 5.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Introduction to Quadratic Functions",
     "context": null,
-    "question": "Which ordered pair represents a point on the graph of $y=x^{2}-7x-10$?<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "A rocket was launched from the ground into the air at an initial velocity of 80 feet per second. The path of the rocket can be modeled by $h(t)=-16t^{2}+80t$ where $t$ represents the time after the rocket has been launched, and $h(t)$ represents the height of the rocket. What is the maximum height, in feet, of the rocket?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$(-10,0)$",
-      "$(10,0)$",
-      "$(3.5, -22.5)$",
-      "$(3.5, -22.25)$"
+      "100",
+      "80",
+      "120",
+      "64"
     ],
-    "answer": "4",
+    "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Evaluating Functions<br><br><strong>Why:</strong> Substitute the x-value of the ordered pair into the function to see if it yields the corresponding y-value. For $x = 3.5$: $y = (3.5)^2 - 7(3.5) - 10 \\implies 12.25 - 24.5 - 10 = -22.25$. Therefore, the valid point is $(3.5, -22.25)$."
+    "explanation": "<strong>Concept:</strong> Maximum of a Quadratic Function<br><br><strong>Why:</strong> First, find the time $t$ when the rocket reaches its maximum height using the axis of symmetry formula $t = \\frac{-b}{2a} \\implies t = \\frac{-80}{2(-16)} \\implies t = \\frac{-80}{-32} = 2.5$ seconds. Then, substitute $t = 2.5$ into the original height function: $h(2.5) = -16(2.5)^2 + 80(2.5) \\implies -16(6.25) + 200 \\implies -100 + 200 = 100$ feet.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
     "topic": "Quadratic Equations",
     "context": null,
-    "question": "When factored completely, $x^{4}-5x^{3}-36x^{2}$ is<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "Use the quadratic formula to solve $2x^{2}-4x-3=0$, and express the answer in simplest radical form.<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$x(x^{3}-5x^{2}-36x)$",
-      "$x^{2}(x^{2}-5x-36)$",
-      "$x^{2}(x-9)(x+4)$",
-      "$(x^{2}-9)(x^{2}+4)$"
+      "$\\frac{2\\pm\\sqrt{10}}{2}$",
+      "$\\frac{4\\pm\\sqrt{10}}{4}$",
+      "$\\frac{2\\pm2\\sqrt{10}}{2}$",
+      "$\\frac{-2\\pm\\sqrt{10}}{2}$"
     ],
-    "answer": "3",
+    "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Factoring Polynomials<br><br><strong>Why:</strong> First, factor out the greatest common factor, which is $x^2$: $x^2(x^2 - 5x - 36)$. Then, factor the inner quadratic trinomial by finding two numbers that multiply to $-36$ and add to $-5$. These numbers are $-9$ and $4$. The completely factored expression is $x^2(x - 9)(x + 4)$."
+    "explanation": "<strong>Concept:</strong> The Quadratic Formula<br><br><strong>Why:</strong> Substitute $a=2$, $b=-4$, and $c=-3$ into the quadratic formula $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\implies x = \\frac{-(-4) \\pm \\sqrt{(-4)^2 - 4(2)(-3)}}{2(2)}$. Simplifying the discriminant gives $x = \\frac{4 \\pm \\sqrt{16 + 24}}{4} \\implies \\frac{4 \\pm \\sqrt{40}}{4}$. Simplify the radical $\\sqrt{40} = 2\\sqrt{10}$, yielding $\\frac{4 \\pm 2\\sqrt{10}}{4}$. Divide all terms by 2 to get the final answer: $\\frac{2 \\pm \\sqrt{10}}{2}$.[cite: 13, 14]"
   },
   {
     "course": "Algebra I",
-    "topic": "Functions",
+    "topic": "Two-Variable Statistics",
     "context": null,
-    "question": "When $3x^{2}-2x+1$ is subtracted from $4x^{2}+5x-6$ the result is<br><br><span class=\"exam-ref\">(ALG I Aug 2026)</span>",
+    "question": "The table below shows the ages of drivers and the annual cost of their car insurance.<br><br><table border='1' style='border-collapse: collapse; text-align: center; margin: 0 auto;'><tr><th>Age (in years)</th><td>16</td><td>17</td><td>18</td><td>18</td><td>21</td><td>22</td><td>30</td></tr><tr><th>Annual Cost (in dollars)</th><td>1452</td><td>1332</td><td>1284</td><td>1320</td><td>1200</td><td>1188</td><td>600</td></tr></table><br><br>What is the slope of the linear regression equation for this set of data, rounded to the nearest hundredth?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
     "options": [
-      "$-x^{2}+3x-5$",
-      "$-x^{2}-7x+7$",
-      "$x^{2}+3x-5$",
-      "$x^{2}+7x-7$"
+      "-56.97",
+      "56.97",
+      "-0.98",
+      "2352.22"
     ],
-    "answer": "4",
+    "answer": "1",
     "image_url": null,
     "image_urls": [],
-    "explanation": "<strong>Concept:</strong> Subtracting Polynomials<br><br><strong>Why:</strong> \"Subtracted from\" indicates the order of operations must be reversed: $(4x^2 + 5x - 6) - (3x^2 - 2x + 1)$. Distribute the negative sign across the second polynomial: $4x^2 + 5x - 6 - 3x^2 + 2x - 1$. Combine like terms: $(4x^2 - 3x^2) + (5x + 2x) + (-6 - 1) = x^2 + 7x - 7$."
+    "explanation": "<strong>Concept:</strong> Linear Regression<br><br><strong>Why:</strong> Inputting the data points into a graphing calculator and running a linear regression ($y = ax + b$) yields a slope ($a$) of approximately $-56.9722...$ and a y-intercept ($b$) of $2352.2222...$. Rounded to the nearest hundredth, the slope is $-56.97$.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "Solve the following system of inequalities:<br><br>$2y \\le x+6$<br>$2x+y > 3$<br><br>Is the point $(0, 3)$ in the solution set of the system?<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "No, because it does not satisfy $2x+y>3$.",
+      "Yes, because it satisfies both inequalities.",
+      "No, because it does not satisfy $2y \\le x+6$.",
+      "Yes, because it satisfies at least one inequality."
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Systems of Linear Inequalities<br><br><strong>Why:</strong> To determine if a point is in the solution set, substitute the coordinates $x=0$ and $y=3$ into both inequalities. First inequality: $2(3) \\le 0 + 6 \\implies 6 \\le 6$ (True). Second inequality: $2(0) + 3 > 3 \\implies 3 > 3$ (False). Since the point fails the second inequality, it is not in the solution set.[cite: 13, 14]"
+  },
+  {
+    "course": "Algebra I",
+    "topic": "Linear Equations, Inequalities, and Systems",
+    "context": null,
+    "question": "Acme Athletics purchases shoes from a supply company. In January the store bought 30 pairs of running shoes and 10 pairs of basketball shoes for \\$3700. In March they bought 15 pairs of running shoes and 20 pairs of basketball shoes for \\$3575. The supply company kept their prices constant. Solve the system of equations algebraically to find the exact cost, in dollars, of one pair of running shoes ($x$) and one pair of basketball shoes ($y$).<br><br><span class=\"exam-ref\">(ALG I Jan 2026)</span>",
+    "options": [
+      "$x = 85$, $y = 115$",
+      "$x = 80$, $y = 130$",
+      "$x = 115$, $y = 85$",
+      "$x = 90$, $y = 110$"
+    ],
+    "answer": "1",
+    "image_url": null,
+    "image_urls": [],
+    "explanation": "<strong>Concept:</strong> Modeling and Solving Systems of Equations<br><br><strong>Why:</strong> The system is $30x + 10y = 3700$ and $15x + 20y = 3575$. Solve the first equation for $y$: $10y = 3700 - 30x \\implies y = 370 - 3x$. Substitute this into the second equation: $15x + 20(370 - 3x) = 3575 \\implies 15x + 7400 - 60x = 3575 \\implies -45x = -3825 \\implies x = 85$. Substitute $x=85$ back into $y = 370 - 3x$: $y = 370 - 3(85) \\implies y = 370 - 255 = 115$.[cite: 13, 14]"
   }
 ]

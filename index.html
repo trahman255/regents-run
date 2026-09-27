@@ -873,7 +873,10 @@
          * Then clears the active volatile session and kicks the user back to the home menu.
          */
         function saveAndExitTest() {
-            let storageKey = `regents_run_saved_${currentTopic}_${currentTestIndex || 'custom'}`;
+            // FIX: Explicitly check for null so Module 0 doesn't get treated as 'custom'
+            let safeIndex = (currentTestIndex !== null && currentTestIndex !== undefined) ? currentTestIndex : 'custom';
+            let storageKey = `regents_run_saved_${currentTopic}_${safeIndex}`;
+            
             let payload = {
                 questions: currentTestQuestions,
                 answers: userAnswers,
@@ -881,10 +884,10 @@
             };
             localStorage.setItem(storageKey, JSON.stringify(payload));
             clearActiveSession();
+            
             alert("Your test progress has been saved!");
             renderSubjects();
         }
-
         /**
          * FUNCTION: renderNavBar
          * Re-draws the SAT-style question bubble navigation bar at the top of the quiz screen.
